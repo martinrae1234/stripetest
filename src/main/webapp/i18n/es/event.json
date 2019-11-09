@@ -1,0 +1,36 @@
+{
+  "webApp": {
+    "event": {
+      "home": {
+        "title": "Events",
+        "createLabel": "Crear nuevo Event",
+        "createOrEditLabel": "Crear o editar Event",
+        "search": "Search for Event",
+        "notFound": "No Events found"
+      },
+      "created": "Un nuevo Event ha sido creado con el identificador {{ param }}",
+      "updated": "Un Event ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Event ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Event {{ id }}?"
+      },
+      "detail": {
+        "title": "Event"
+      },
+      "salesforceUID": "Salesforce UID",
+      "eventName": "Event Name",
+      "eventDate": "Event Date",
+      "eventDescription": "Event Description",
+      "eventBanner": "Event Banner",
+      "eventPictureOne": "Event Picture One",
+      "eventPrictureTwo": "Event Pricture Two",
+      "locationCoordinateX": "Location Coordinate X",
+      "locationCoordinateY": "Location Coordinate Y",
+      "attendees": "Attendees",
+      "maximumAttendees": "Maximum Attendees",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date",
+      "project": "Project"
+    }
+  }
+}

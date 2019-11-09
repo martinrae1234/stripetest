@@ -1,0 +1,52 @@
+{
+    "name": "Commodity",
+    "fields": [
+        {
+            "fieldName": "dateOfLastStockCheck",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "perishable",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "amountExpirableInNext3months",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "createdByUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "school",
+            "otherEntityRelationshipName": "commodity",
+            "relationshipName": "commodityForSchool",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191030183331",
+    "entityTableName": "commodity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

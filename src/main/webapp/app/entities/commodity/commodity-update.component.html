@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-commodity-heading" jhiTranslate="webApp.commodity.home.createOrEditLabel">Create or edit a Commodity</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.dateOfLastStockCheck" for="field_dateOfLastStockCheck">Date Of Last Stock Check</label>
+                    <div class="input-group">
+                        <input id="field_dateOfLastStockCheck" type="text" class="form-control" name="dateOfLastStockCheck" ngbDatepicker  #dateOfLastStockCheckDp="ngbDatepicker" formControlName="dateOfLastStockCheck"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfLastStockCheckDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.perishable" for="field_perishable">Perishable</label>
+                    <input type="checkbox" class="form-control" name="perishable" id="field_perishable"
+                           formControlName="perishable"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.amountExpirableInNext3months" for="field_amountExpirableInNext3months">Amount Expirable In Next 3 Months</label>
+                    <input type="number" class="form-control" name="amountExpirableInNext3months" id="field_amountExpirableInNext3months"
+                           formControlName="amountExpirableInNext3months"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.createdByUserId" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.commodity.commodityForSchool" for="field_commodityForSchool">Commodity For School</label>
+                    <select class="form-control" id="field_commodityForSchool" name="commodityForSchool" formControlName="commodityForSchool">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="schoolOption.id === editForm.get('commodityForSchool').value?.id ? editForm.get('commodityForSchool').value : schoolOption" *ngFor="let schoolOption of schools; trackBy: trackSchoolById">{{schoolOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

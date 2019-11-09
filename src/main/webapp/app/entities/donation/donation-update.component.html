@@ -1,0 +1,210 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-donation-heading" jhiTranslate="webApp.donation.home.createOrEditLabel">Create or edit a Donation</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.salesforceUID" for="field_salesforceUID">Salesforce UID</label>
+                    <input type="text" class="form-control" name="salesforceUID" id="field_salesforceUID"
+                           formControlName="salesforceUID"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.currency" for="field_currency">Currency</label>
+                    <select class="form-control" name="currency" formControlName="currency" id="field_currency">
+                        <option value="GBP">{{'webApp.Currency.GBP' | translate}}</option>
+                        <option value="USD">{{'webApp.Currency.USD' | translate}}</option>
+                        <option value="EURO">{{'webApp.Currency.EURO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                    <div *ngIf="editForm.get('amount').invalid && (editForm.get('amount').dirty || editForm.get('amount').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('amount').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('amount')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.paymentMethod" for="field_paymentMethod">Payment Method</label>
+                    <select class="form-control" name="paymentMethod" formControlName="paymentMethod" id="field_paymentMethod">
+                        <option value="DIRECTDEBIT">{{'webApp.PaymentMethod.DIRECTDEBIT' | translate}}</option>
+                        <option value="CARDPAYMENT">{{'webApp.PaymentMethod.CARDPAYMENT' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('paymentMethod').invalid && (editForm.get('paymentMethod').dirty || editForm.get('paymentMethod').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('paymentMethod').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.frequency" for="field_frequency">Frequency</label>
+                    <select class="form-control" name="frequency" formControlName="frequency" id="field_frequency">
+                        <option value="SINGLE">{{'webApp.Frequency.SINGLE' | translate}}</option>
+                        <option value="MONTHLY">{{'webApp.Frequency.MONTHLY' | translate}}</option>
+                        <option value="YEARLY">{{'webApp.Frequency.YEARLY' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('frequency').invalid && (editForm.get('frequency').dirty || editForm.get('frequency').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('frequency').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.ageCategory" for="field_ageCategory">Age Category</label>
+                    <input type="checkbox" class="form-control" name="ageCategory" id="field_ageCategory"
+                           formControlName="ageCategory"/>
+                    <div *ngIf="editForm.get('ageCategory').invalid && (editForm.get('ageCategory').dirty || editForm.get('ageCategory').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ageCategory').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.giftAidable" for="field_giftAidable">Gift Aidable</label>
+                    <input type="checkbox" class="form-control" name="giftAidable" id="field_giftAidable"
+                           formControlName="giftAidable"/>
+                    <div *ngIf="editForm.get('giftAidable').invalid && (editForm.get('giftAidable').dirty || editForm.get('giftAidable').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('giftAidable').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.giftAidMessage" for="field_giftAidMessage">Gift Aid Message</label>
+                    <input type="text" class="form-control" name="giftAidMessage" id="field_giftAidMessage"
+                           formControlName="giftAidMessage"/>
+                    <div *ngIf="editForm.get('giftAidMessage').invalid && (editForm.get('giftAidMessage').dirty || editForm.get('giftAidMessage').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('giftAidMessage').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.accountHolderName" for="field_accountHolderName">Account Holder Name</label>
+                    <input type="text" class="form-control" name="accountHolderName" id="field_accountHolderName"
+                           formControlName="accountHolderName"/>
+                    <div *ngIf="editForm.get('accountHolderName').invalid && (editForm.get('accountHolderName').dirty || editForm.get('accountHolderName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('accountHolderName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.accountNumber" for="field_accountNumber">Account Number</label>
+                    <input type="number" class="form-control" name="accountNumber" id="field_accountNumber"
+                           formControlName="accountNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.sortcode" for="field_sortcode">Sortcode</label>
+                    <input type="number" class="form-control" name="sortcode" id="field_sortcode"
+                           formControlName="sortcode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.collectionDate" for="field_collectionDate">Collection Date</label>
+                    <select class="form-control" name="collectionDate" formControlName="collectionDate" id="field_collectionDate">
+                        <option value="FIRST">{{'webApp.CollectionDate.FIRST' | translate}}</option>
+                        <option value="ELEVENTH">{{'webApp.CollectionDate.ELEVENTH' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('collectionDate').invalid && (editForm.get('collectionDate').dirty || editForm.get('collectionDate').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('collectionDate').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.isAccountHolder" for="field_isAccountHolder">Is Account Holder</label>
+                    <input type="checkbox" class="form-control" name="isAccountHolder" id="field_isAccountHolder"
+                           formControlName="isAccountHolder"/>
+                    <div *ngIf="editForm.get('isAccountHolder').invalid && (editForm.get('isAccountHolder').dirty || editForm.get('isAccountHolder').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isAccountHolder').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.cardType" for="field_cardType">Card Type</label>
+                    <select class="form-control" name="cardType" formControlName="cardType" id="field_cardType">
+                        <option value="VISA">{{'webApp.CardType.VISA' | translate}}</option>
+                        <option value="MASTERCARD">{{'webApp.CardType.MASTERCARD' | translate}}</option>
+                        <option value="DISCOVER">{{'webApp.CardType.DISCOVER' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.cardNumber" for="field_cardNumber">Card Number</label>
+                    <input type="number" class="form-control" name="cardNumber" id="field_cardNumber"
+                           formControlName="cardNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.expiryMonth" for="field_expiryMonth">Expiry Month</label>
+                    <input type="number" class="form-control" name="expiryMonth" id="field_expiryMonth"
+                           formControlName="expiryMonth"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.expiryYear" for="field_expiryYear">Expiry Year</label>
+                    <input type="number" class="form-control" name="expiryYear" id="field_expiryYear"
+                           formControlName="expiryYear"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.cardSecurityCode" for="field_cardSecurityCode">Card Security Code</label>
+                    <input type="number" class="form-control" name="cardSecurityCode" id="field_cardSecurityCode"
+                           formControlName="cardSecurityCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.createdByUserId" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.donationToSupporter" for="field_donationToSupporter">Donation To Supporter</label>
+                    <select class="form-control" id="field_donationToSupporter" name="donationToSupporter" formControlName="donationToSupporter">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="supporterOption.id === editForm.get('donationToSupporter').value?.id ? editForm.get('donationToSupporter').value : supporterOption" *ngFor="let supporterOption of supporters; trackBy: trackSupporterById">{{supporterOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.donatesToProject" for="field_donatesToProject">Donates To Project</label>
+                    <select class="form-control" id="field_donatesToProject" name="donatesToProject" formControlName="donatesToProject">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectOption.id === editForm.get('donatesToProject').value?.id ? editForm.get('donatesToProject').value : projectOption" *ngFor="let projectOption of projects; trackBy: trackProjectById">{{projectOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

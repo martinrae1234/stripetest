@@ -1,0 +1,39 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+/* ==========================================================================
+Navbar
+========================================================================== */
+
+.profile-image {
+  height: 1em;
+  width: 1em;
+}
+
+
+.navbar {
+  background-color: #0098d9;
+  box-shadow: 0 0 50px black;
+
+  ul.navbar-nav {
+    .nav-item {
+      margin-left: 0.5em;
+    }
+  }
+
+  a.nav-link {
+    font-weight: 400;
+  }
+}
+
+/* ==========================================================================
+Logo styles
+========================================================================== */
+.logo-img {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url('../../../content/images/marysmealssign.jpg') no-repeat center center;
+  background-size: contain;
+}

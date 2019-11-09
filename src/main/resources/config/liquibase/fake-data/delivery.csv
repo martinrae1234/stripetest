@@ -1,0 +1,11 @@
+id;delivery_date;amount_delivered_rice;amount_delivered_flour;delivery_note_image;delivery_note_image_content_type;created_by_user_id;created_date
+1;2019-10-30;36223;97964;../fake-data/blob/hipster.png;image/png;33451;2019-10-30T14:35:28
+2;2019-10-30;70025;2419;../fake-data/blob/hipster.png;image/png;58581;2019-10-29T22:35:51
+3;2019-10-30;27307;69767;../fake-data/blob/hipster.png;image/png;51807;2019-10-29T20:14:51
+4;2019-10-30;78258;94067;../fake-data/blob/hipster.png;image/png;5613;2019-10-30T12:20:06
+5;2019-10-29;42965;22554;../fake-data/blob/hipster.png;image/png;87273;2019-10-30T09:30:44
+6;2019-10-29;46173;18610;../fake-data/blob/hipster.png;image/png;48090;2019-10-29T23:17:42
+7;2019-10-30;45818;93735;../fake-data/blob/hipster.png;image/png;48296;2019-10-30T01:36:50
+8;2019-10-30;63117;8060;../fake-data/blob/hipster.png;image/png;4984;2019-10-30T01:05:16
+9;2019-10-29;49646;90939;../fake-data/blob/hipster.png;image/png;43685;2019-10-29T23:50:00
+10;2019-10-30;702;76551;../fake-data/blob/hipster.png;image/png;5728;2019-10-30T14:44:40

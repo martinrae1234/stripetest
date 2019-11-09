@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="homePage">
+            <h2><span jhiTranslate="webApp.homePage.detail.title">Home Page</span> {{homePage.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.homePage.costOfFeedingAChild">Cost Of Feeding A Child</span></dt>
+                <dd>
+                    <span>{{homePage.costOfFeedingAChild}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.homePage.typeOfProject">Type Of Project</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.TypeOfProject.' + homePage.typeOfProject}}">{{homePage.typeOfProject}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/home-page', homePage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

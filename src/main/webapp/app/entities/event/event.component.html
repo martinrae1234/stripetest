@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.event.home.title">Events</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-event" [routerLink]="['/event/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.event.home.createLabel">
+            Create a new Event
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="events?.length === 0">
+        <span jhiTranslate="webApp.event.home.notFound">No events found</span>
+    </div>
+    <div class="table-responsive" *ngIf="events?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.salesforceUID">Salesforce UID</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.eventName">Event Name</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.eventDate">Event Date</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.eventDescription">Event Description</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.eventBanner">Event Banner</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.eventPictureOne">Event Picture One</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.eventPrictureTwo">Event Pricture Two</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.locationCoordinateX">Location Coordinate X</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.locationCoordinateY">Location Coordinate Y</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.attendees">Attendees</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.maximumAttendees">Maximum Attendees</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.createdByUserId">Created By User Id</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.createdDate">Created Date</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.event.project">Project</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let event of events ;trackBy: trackId">
+                <td><a [routerLink]="['/event', event.id, 'view' ]">{{event.id}}</a></td>
+                <td>{{event.salesforceUID}}</td>
+                <td>{{event.eventName}}</td>
+                <td>{{event.eventDate | date:'medium'}}</td>
+                <td>{{event.eventDescription}}</td>
+                <td>
+                    <a *ngIf="event.eventBanner" (click)="openFile(event.eventBannerContentType, event.eventBanner)">
+                        <img [src]="'data:' + event.eventBannerContentType + ';base64,' + event.eventBanner" style="max-height: 30px;" alt="event image"/>
+                    </a>
+                    <span *ngIf="event.eventBanner">{{event.eventBannerContentType}}, {{byteSize(event.eventBanner)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="event.eventPictureOne" (click)="openFile(event.eventPictureOneContentType, event.eventPictureOne)">
+                        <img [src]="'data:' + event.eventPictureOneContentType + ';base64,' + event.eventPictureOne" style="max-height: 30px;" alt="event image"/>
+                    </a>
+                    <span *ngIf="event.eventPictureOne">{{event.eventPictureOneContentType}}, {{byteSize(event.eventPictureOne)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="event.eventPrictureTwo" (click)="openFile(event.eventPrictureTwoContentType, event.eventPrictureTwo)">
+                        <img [src]="'data:' + event.eventPrictureTwoContentType + ';base64,' + event.eventPrictureTwo" style="max-height: 30px;" alt="event image"/>
+                    </a>
+                    <span *ngIf="event.eventPrictureTwo">{{event.eventPrictureTwoContentType}}, {{byteSize(event.eventPrictureTwo)}}</span>
+                </td>
+                <td>{{event.locationCoordinateX}}</td>
+                <td>{{event.locationCoordinateY}}</td>
+                <td>{{event.attendees}}</td>
+                <td>{{event.maximumAttendees}}</td>
+                <td>{{event.createdByUserId}}</td>
+                <td>{{event.createdDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="event.project">
+                        <a [routerLink]="['/project', event.project?.id, 'view' ]" >{{event.project?.projectName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/event', event.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/event', event.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/event', { outlets: { popup: event.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "webApp": {
+    "SupporterSalutation": {
+      "null": "",
+      "MR": "MR",
+      "MRS": "MRS",
+      "MISS": "MISS",
+      "MS": "MS"
+    }
+  }
+}

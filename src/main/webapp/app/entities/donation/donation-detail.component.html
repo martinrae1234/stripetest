@@ -1,0 +1,115 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="donation">
+            <h2><span jhiTranslate="webApp.donation.detail.title">Donation</span> {{donation.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.donation.salesforceUID">Salesforce UID</span></dt>
+                <dd>
+                    <span>{{donation.salesforceUID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.currency">Currency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.Currency.' + donation.currency}}">{{donation.currency}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.amount">Amount</span></dt>
+                <dd>
+                    <span>{{donation.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.paymentMethod">Payment Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.PaymentMethod.' + donation.paymentMethod}}">{{donation.paymentMethod}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.frequency">Frequency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.Frequency.' + donation.frequency}}">{{donation.frequency}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.ageCategory">Age Category</span></dt>
+                <dd>
+                    <span>{{donation.ageCategory}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.giftAidable">Gift Aidable</span></dt>
+                <dd>
+                    <span>{{donation.giftAidable}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.giftAidMessage">Gift Aid Message</span></dt>
+                <dd>
+                    <span>{{donation.giftAidMessage}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.accountHolderName">Account Holder Name</span></dt>
+                <dd>
+                    <span>{{donation.accountHolderName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.accountNumber">Account Number</span></dt>
+                <dd>
+                    <span>{{donation.accountNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.sortcode">Sortcode</span></dt>
+                <dd>
+                    <span>{{donation.sortcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.collectionDate">Collection Date</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.CollectionDate.' + donation.collectionDate}}">{{donation.collectionDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.isAccountHolder">Is Account Holder</span></dt>
+                <dd>
+                    <span>{{donation.isAccountHolder}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.cardType">Card Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.CardType.' + donation.cardType}}">{{donation.cardType}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.cardNumber">Card Number</span></dt>
+                <dd>
+                    <span>{{donation.cardNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.expiryMonth">Expiry Month</span></dt>
+                <dd>
+                    <span>{{donation.expiryMonth}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.expiryYear">Expiry Year</span></dt>
+                <dd>
+                    <span>{{donation.expiryYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.cardSecurityCode">Card Security Code</span></dt>
+                <dd>
+                    <span>{{donation.cardSecurityCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{donation.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{donation.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.donationToSupporter">Donation To Supporter</span></dt>
+                <dd>
+                    <div *ngIf="donation.donationToSupporter">
+                        <a [routerLink]="['/supporter', donation.donationToSupporter?.id, 'view']">{{donation.donationToSupporter?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.donation.donatesToProject">Donates To Project</span></dt>
+                <dd>
+                    <div *ngIf="donation.donatesToProject">
+                        <a [routerLink]="['/project', donation.donatesToProject?.id, 'view']">{{donation.donatesToProject?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/donation', donation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

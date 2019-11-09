@@ -1,0 +1,10 @@
+{
+  "webApp": {
+    "Frequency": {
+      "null": "",
+      "SINGLE": "SINGLE",
+      "MONTHLY": "MONTHLY",
+      "YEARLY": "YEARLY"
+    }
+  }
+}

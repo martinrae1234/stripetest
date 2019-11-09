@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.school.home.title">Schools</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-school" [routerLink]="['/school/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.school.home.createLabel">
+            Create a new School
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="schools?.length === 0">
+        <span jhiTranslate="webApp.school.home.notFound">No schools found</span>
+    </div>
+    <div class="table-responsive" *ngIf="schools?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="salesforceUID"><span jhiTranslate="webApp.school.salesforceUID">Salesforce UID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="legacySchoolID"><span jhiTranslate="webApp.school.legacySchoolID">Legacy School ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="schoolName"><span jhiTranslate="webApp.school.schoolName">School Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="sponsored"><span jhiTranslate="webApp.school.sponsored">Sponsored</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="attendanceTotal"><span jhiTranslate="webApp.school.attendanceTotal">Attendance Total</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="attendanceBoys"><span jhiTranslate="webApp.school.attendanceBoys">Attendance Boys</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="attendanceGirls"><span jhiTranslate="webApp.school.attendanceGirls">Attendance Girls</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="enrolmentTotal"><span jhiTranslate="webApp.school.enrolmentTotal">Enrolment Total</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="locationCoordinateX"><span jhiTranslate="webApp.school.locationCoordinateX">Location Coordinate X</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="locationCoordinateY"><span jhiTranslate="webApp.school.locationCoordinateY">Location Coordinate Y</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="imageBanner"><span jhiTranslate="webApp.school.imageBanner">Image Banner</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="textBanner"><span jhiTranslate="webApp.school.textBanner">Text Banner</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="imageOne"><span jhiTranslate="webApp.school.imageOne">Image One</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="imageTwo"><span jhiTranslate="webApp.school.imageTwo">Image Two</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="imageThree"><span jhiTranslate="webApp.school.imageThree">Image Three</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="imageFour"><span jhiTranslate="webApp.school.imageFour">Image Four</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dateOfLastStockCheck"><span jhiTranslate="webApp.school.dateOfLastStockCheck">Date Of Last Stock Check</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdByUserId"><span jhiTranslate="webApp.school.createdByUserId">Created By User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="webApp.school.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let school of schools ;trackBy: trackId">
+                <td><a [routerLink]="['/school', school.id, 'view' ]">{{school.id}}</a></td>
+                <td>{{school.salesforceUID}}</td>
+                <td>{{school.legacySchoolID}}</td>
+                <td>{{school.schoolName}}</td>
+                <td>{{school.sponsored}}</td>
+                <td>{{school.attendanceTotal}}</td>
+                <td>{{school.attendanceBoys}}</td>
+                <td>{{school.attendanceGirls}}</td>
+                <td>{{school.enrolmentTotal}}</td>
+                <td>{{school.locationCoordinateX}}</td>
+                <td>{{school.locationCoordinateY}}</td>
+                <td>
+                    <a *ngIf="school.imageBanner" (click)="openFile(school.imageBannerContentType, school.imageBanner)">
+                        <img [src]="'data:' + school.imageBannerContentType + ';base64,' + school.imageBanner" style="max-height: 30px;" alt="school image"/>
+                    </a>
+                    <span *ngIf="school.imageBanner">{{school.imageBannerContentType}}, {{byteSize(school.imageBanner)}}</span>
+                </td>
+                <td>{{school.textBanner}}</td>
+                <td>
+                    <a *ngIf="school.imageOne" (click)="openFile(school.imageOneContentType, school.imageOne)">
+                        <img [src]="'data:' + school.imageOneContentType + ';base64,' + school.imageOne" style="max-height: 30px;" alt="school image"/>
+                    </a>
+                    <span *ngIf="school.imageOne">{{school.imageOneContentType}}, {{byteSize(school.imageOne)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="school.imageTwo" (click)="openFile(school.imageTwoContentType, school.imageTwo)">
+                        <img [src]="'data:' + school.imageTwoContentType + ';base64,' + school.imageTwo" style="max-height: 30px;" alt="school image"/>
+                    </a>
+                    <span *ngIf="school.imageTwo">{{school.imageTwoContentType}}, {{byteSize(school.imageTwo)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="school.imageThree" (click)="openFile(school.imageThreeContentType, school.imageThree)">
+                        <img [src]="'data:' + school.imageThreeContentType + ';base64,' + school.imageThree" style="max-height: 30px;" alt="school image"/>
+                    </a>
+                    <span *ngIf="school.imageThree">{{school.imageThreeContentType}}, {{byteSize(school.imageThree)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="school.imageFour" (click)="openFile(school.imageFourContentType, school.imageFour)">
+                        <img [src]="'data:' + school.imageFourContentType + ';base64,' + school.imageFour" style="max-height: 30px;" alt="school image"/>
+                    </a>
+                    <span *ngIf="school.imageFour">{{school.imageFourContentType}}, {{byteSize(school.imageFour)}}</span>
+                </td>
+                <td>{{school.dateOfLastStockCheck | date:'mediumDate'}}</td>
+                <td>{{school.createdByUserId}}</td>
+                <td>{{school.createdDate | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/school', school.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/school', school.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/school', { outlets: { popup: school.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

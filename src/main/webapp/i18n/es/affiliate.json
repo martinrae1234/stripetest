@@ -1,0 +1,44 @@
+{
+  "webApp": {
+    "affiliate": {
+      "home": {
+        "title": "Affiliates",
+        "createLabel": "Crear nuevo Affiliate",
+        "createOrEditLabel": "Crear o editar Affiliate",
+        "search": "Search for Affiliate",
+        "notFound": "No Affiliates found"
+      },
+      "created": "Un nuevo Affiliate ha sido creado con el identificador {{ param }}",
+      "updated": "Un Affiliate ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Affiliate ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Affiliate {{ id }}?"
+      },
+      "detail": {
+        "title": "Affiliate"
+      },
+      "salesforceUID": "Salesforce UID",
+      "affiliateName": "Affiliate Name",
+      "currency": "Currency",
+      "streetAddress": "Street Address",
+      "city": "City",
+      "county": "County",
+      "postcode": "Postcode",
+      "country": "Country",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "locationCoordinateX": "Location Coordinate X",
+      "locationCoordinateY": "Location Coordinate Y",
+      "defaultLanguage": "Default Language",
+      "cardPayment": "Card Payment",
+      "singleCardPayment": "Single Card Payment",
+      "recurringCardPayment": "Recurring Card Payment",
+      "directDebit": "Direct Debit",
+      "giftAid": "Gift Aid",
+      "generalFundraising": "General Fundraising",
+      "schoolFundraising": "School Fundraising",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date"
+    }
+  }
+}

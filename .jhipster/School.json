@@ -1,0 +1,115 @@
+{
+    "name": "School",
+    "fields": [
+        {
+            "fieldName": "salesforceUID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "legacySchoolID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "schoolName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sponsored",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "attendanceTotal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attendanceBoys",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "attendanceGirls",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "enrolmentTotal",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "locationCoordinateX",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "locationCoordinateY",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "imageBanner",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "textBanner",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imageOne",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imageTwo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imageThree",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "imageFour",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "dateOfLastStockCheck",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createdByUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191030183330",
+    "entityTableName": "school",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,154 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-event-heading" jhiTranslate="webApp.event.home.createOrEditLabel">Create or edit a Event</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.salesforceUID" for="field_salesforceUID">Salesforce UID</label>
+                    <input type="text" class="form-control" name="salesforceUID" id="field_salesforceUID"
+                           formControlName="salesforceUID"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.eventName" for="field_eventName">Event Name</label>
+                    <input type="text" class="form-control" name="eventName" id="field_eventName"
+                           formControlName="eventName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.eventDate" for="field_eventDate">Event Date</label>
+                    <div class="d-flex">
+                        <input id="field_eventDate" type="datetime-local" class="form-control" name="eventDate" formControlName="eventDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.eventDescription" for="field_eventDescription">Event Description</label>
+                    <input type="text" class="form-control" name="eventDescription" id="field_eventDescription"
+                           formControlName="eventDescription"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.eventBanner" for="field_eventBanner">Event Banner</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('eventBannerContentType').value + ';base64,' + editForm.get('eventBanner').value" style="max-height: 100px;" *ngIf="editForm.get('eventBanner').value" alt="event image"/>
+                        <div *ngIf="editForm.get('eventBanner').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('eventBannerContentType').value}}, {{byteSize(editForm.get('eventBanner').value)}}</span>
+                            <button type="button" (click)="clearInputImage('eventBanner', 'eventBannerContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_eventBanner" (change)="setFileData($event, 'eventBanner', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="eventBanner" id="field_eventBanner"
+                           formControlName="eventBanner"/>
+                    <input type="hidden" class="form-control" name="eventBannerContentType" id="field_eventBannerContentType"
+                           formControlName="eventBannerContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.eventPictureOne" for="field_eventPictureOne">Event Picture One</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('eventPictureOneContentType').value + ';base64,' + editForm.get('eventPictureOne').value" style="max-height: 100px;" *ngIf="editForm.get('eventPictureOne').value" alt="event image"/>
+                        <div *ngIf="editForm.get('eventPictureOne').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('eventPictureOneContentType').value}}, {{byteSize(editForm.get('eventPictureOne').value)}}</span>
+                            <button type="button" (click)="clearInputImage('eventPictureOne', 'eventPictureOneContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_eventPictureOne" (change)="setFileData($event, 'eventPictureOne', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="eventPictureOne" id="field_eventPictureOne"
+                           formControlName="eventPictureOne"/>
+                    <input type="hidden" class="form-control" name="eventPictureOneContentType" id="field_eventPictureOneContentType"
+                           formControlName="eventPictureOneContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.eventPrictureTwo" for="field_eventPrictureTwo">Event Pricture Two</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('eventPrictureTwoContentType').value + ';base64,' + editForm.get('eventPrictureTwo').value" style="max-height: 100px;" *ngIf="editForm.get('eventPrictureTwo').value" alt="event image"/>
+                        <div *ngIf="editForm.get('eventPrictureTwo').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('eventPrictureTwoContentType').value}}, {{byteSize(editForm.get('eventPrictureTwo').value)}}</span>
+                            <button type="button" (click)="clearInputImage('eventPrictureTwo', 'eventPrictureTwoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_eventPrictureTwo" (change)="setFileData($event, 'eventPrictureTwo', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="eventPrictureTwo" id="field_eventPrictureTwo"
+                           formControlName="eventPrictureTwo"/>
+                    <input type="hidden" class="form-control" name="eventPrictureTwoContentType" id="field_eventPrictureTwoContentType"
+                           formControlName="eventPrictureTwoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.locationCoordinateX" for="field_locationCoordinateX">Location Coordinate X</label>
+                    <input type="number" class="form-control" name="locationCoordinateX" id="field_locationCoordinateX"
+                           formControlName="locationCoordinateX"/>
+                    <div *ngIf="editForm.get('locationCoordinateX').invalid && (editForm.get('locationCoordinateX').dirty || editForm.get('locationCoordinateX').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateX').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateX')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.locationCoordinateY" for="field_locationCoordinateY">Location Coordinate Y</label>
+                    <input type="number" class="form-control" name="locationCoordinateY" id="field_locationCoordinateY"
+                           formControlName="locationCoordinateY"/>
+                    <div *ngIf="editForm.get('locationCoordinateY').invalid && (editForm.get('locationCoordinateY').dirty || editForm.get('locationCoordinateY').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateY').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateY')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.attendees" for="field_attendees">Attendees</label>
+                    <input type="number" class="form-control" name="attendees" id="field_attendees"
+                           formControlName="attendees"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.maximumAttendees" for="field_maximumAttendees">Maximum Attendees</label>
+                    <input type="number" class="form-control" name="maximumAttendees" id="field_maximumAttendees"
+                           formControlName="maximumAttendees"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.createdByUserId" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.event.project" for="field_project">Project</label>
+                    <select class="form-control" id="field_project" name="project" formControlName="project">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectOption.id === editForm.get('project').value?.id ? editForm.get('project').value : projectOption" *ngFor="let projectOption of projects; trackBy: trackProjectById">{{projectOption.projectName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

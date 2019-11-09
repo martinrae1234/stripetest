@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.supporter.home.title">Supporters</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-supporter" [routerLink]="['/supporter/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.supporter.home.createLabel">
+            Create a new Supporter
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="supporters?.length === 0">
+        <span jhiTranslate="webApp.supporter.home.notFound">No supporters found</span>
+    </div>
+    <div class="table-responsive" *ngIf="supporters?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="salesforceUID"><span jhiTranslate="webApp.supporter.salesforceUID">Salesforce UID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ageCategory"><span jhiTranslate="webApp.supporter.ageCategory">Age Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="supporterSalutation"><span jhiTranslate="webApp.supporter.supporterSalutation">Supporter Salutation</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="firstName"><span jhiTranslate="webApp.supporter.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="secondName"><span jhiTranslate="webApp.supporter.secondName">Second Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="email"><span jhiTranslate="webApp.supporter.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="streetAddress"><span jhiTranslate="webApp.supporter.streetAddress">Street Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="city"><span jhiTranslate="webApp.supporter.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="county"><span jhiTranslate="webApp.supporter.county">County</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="postcode"><span jhiTranslate="webApp.supporter.postcode">Postcode</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="country"><span jhiTranslate="webApp.supporter.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="supporterPicture"><span jhiTranslate="webApp.supporter.supporterPicture">Supporter Picture</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="contactableByEmail"><span jhiTranslate="webApp.supporter.contactableByEmail">Contactable By Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="contactableByPost"><span jhiTranslate="webApp.supporter.contactableByPost">Contactable By Post</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="locationCoordinateX"><span jhiTranslate="webApp.supporter.locationCoordinateX">Location Coordinate X</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="locationCoordinateY"><span jhiTranslate="webApp.supporter.locationCoordinateY">Location Coordinate Y</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="facebookUrl"><span jhiTranslate="webApp.supporter.facebookUrl">Facebook Url</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="instagramUrl"><span jhiTranslate="webApp.supporter.instagramUrl">Instagram Url</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="twitterUrl"><span jhiTranslate="webApp.supporter.twitterUrl">Twitter Url</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdByUserId"><span jhiTranslate="webApp.supporter.createdByUserId">Created By User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="webApp.supporter.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="user.login"><span jhiTranslate="webApp.supporter.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="supporterOfAffiliate.id"><span jhiTranslate="webApp.supporter.supporterOfAffiliate">Supporter Of Affiliate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let supporter of supporters ;trackBy: trackId">
+                <td><a [routerLink]="['/supporter', supporter.id, 'view' ]">{{supporter.id}}</a></td>
+                <td>{{supporter.salesforceUID}}</td>
+                <td>{{supporter.ageCategory}}</td>
+                <td jhiTranslate="{{'webApp.SupporterSalutation.' + supporter.supporterSalutation}}">{{supporter.supporterSalutation}}</td>
+                <td>{{supporter.firstName}}</td>
+                <td>{{supporter.secondName}}</td>
+                <td>{{supporter.email}}</td>
+                <td>{{supporter.streetAddress}}</td>
+                <td>{{supporter.city}}</td>
+                <td>{{supporter.county}}</td>
+                <td>{{supporter.postcode}}</td>
+                <td>{{supporter.country}}</td>
+                <td>
+                    <a *ngIf="supporter.supporterPicture" (click)="openFile(supporter.supporterPictureContentType, supporter.supporterPicture)">
+                        <img [src]="'data:' + supporter.supporterPictureContentType + ';base64,' + supporter.supporterPicture" style="max-height: 30px;" alt="supporter image"/>
+                    </a>
+                    <span *ngIf="supporter.supporterPicture">{{supporter.supporterPictureContentType}}, {{byteSize(supporter.supporterPicture)}}</span>
+                </td>
+                <td>{{supporter.contactableByEmail}}</td>
+                <td>{{supporter.contactableByPost}}</td>
+                <td>{{supporter.locationCoordinateX}}</td>
+                <td>{{supporter.locationCoordinateY}}</td>
+                <td>{{supporter.facebookUrl}}</td>
+                <td>{{supporter.instagramUrl}}</td>
+                <td>{{supporter.twitterUrl}}</td>
+                <td>{{supporter.createdByUserId}}</td>
+                <td>{{supporter.createdDate | date:'medium'}}</td>
+                <td>
+                    {{supporter.user?.login}}
+                </td>
+                <td>
+                    <div *ngIf="supporter.supporterOfAffiliate">
+                        <a [routerLink]="['/affiliate', supporter.supporterOfAffiliate?.id, 'view' ]" >{{supporter.supporterOfAffiliate?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/supporter', supporter.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/supporter', supporter.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/supporter', { outlets: { popup: supporter.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="supporters?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

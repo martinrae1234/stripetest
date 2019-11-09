@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.commodity.home.title">Commodities</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-commodity" [routerLink]="['/commodity/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.commodity.home.createLabel">
+            Create a new Commodity
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="commodities?.length === 0">
+        <span jhiTranslate="webApp.commodity.home.notFound">No commodities found</span>
+    </div>
+    <div class="table-responsive" *ngIf="commodities?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.dateOfLastStockCheck">Date Of Last Stock Check</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.amount">Amount</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.perishable">Perishable</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.amountExpirableInNext3months">Amount Expirable In Next 3 Months</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.createdByUserId">Created By User Id</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.createdDate">Created Date</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.commodity.commodityForSchool">Commodity For School</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let commodity of commodities ;trackBy: trackId">
+                <td><a [routerLink]="['/commodity', commodity.id, 'view' ]">{{commodity.id}}</a></td>
+                <td>{{commodity.dateOfLastStockCheck | date:'mediumDate'}}</td>
+                <td>{{commodity.name}}</td>
+                <td>{{commodity.amount}}</td>
+                <td>{{commodity.perishable}}</td>
+                <td>{{commodity.amountExpirableInNext3months}}</td>
+                <td>{{commodity.createdByUserId}}</td>
+                <td>{{commodity.createdDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="commodity.commodityForSchool">
+                        <a [routerLink]="['/school', commodity.commodityForSchool?.id, 'view' ]" >{{commodity.commodityForSchool?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/commodity', commodity.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/commodity', commodity.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/commodity', { outlets: { popup: commodity.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+id;salesforce_uid;type_of_project;fundraising_target;age_category;project_name;project_description;project_image;project_image_content_type;sponsorship_start;sponsorship_end_date;created_by_user_id;created_date
+1;mission-critical Rustic;GENERALFUNDRAISING;67009;false;haptic Moldova archive;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-30;2019-10-30;71615;2019-10-30T08:57:37
+2;Administrator;GENERALFUNDRAISING;18143;true;Fish attitude-oriented;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-29;2019-10-30;18522;2019-10-30T12:24:02
+3;Group Avon neural;SPONSORASCHOOL;11230;true;Credit Card Account;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-29;2019-10-30;88420;2019-10-30T04:18:48
+4;digital;GENERALFUNDRAISING;83986;true;navigate Idaho Seamless;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-30;2019-10-30;73195;2019-10-29T22:48:56
+5;bandwidth Trinidad and Tobago Dollar Licensed;SPONSORASCHOOL;15298;false;bus;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-29;2019-10-30;21673;2019-10-30T05:42:34
+6;Chair;SPONSORASCHOOL;60709;false;deposit Integrated;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-30;2019-10-30;5845;2019-10-30T06:38:08
+7;Engineer;SPONSORASCHOOL;67584;false;content monitor;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-30;2019-10-30;99125;2019-10-30T10:22:19
+8;bypassing;SPONSORASCHOOL;27416;true;asymmetric;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-30;2019-10-29;59575;2019-10-30T13:57:12
+9;framework Future-proofed;GENERALFUNDRAISING;83186;false;primary Profit-focused Ethiopia;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-29;2019-10-30;65087;2019-10-30T02:14:06
+10;Function-based Highway;SPONSORASCHOOL;99413;false;efficient Producer;../fake-data/blob/hipster.txt;../fake-data/blob/hipster.png;image/png;2019-10-30;2019-10-30;33356;2019-10-30T17:06:52

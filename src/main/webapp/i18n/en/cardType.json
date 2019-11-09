@@ -1,0 +1,10 @@
+{
+  "webApp": {
+    "CardType": {
+      "null": "",
+      "VISA": "VISA",
+      "MASTERCARD": "MASTERCARD",
+      "DISCOVER": "DISCOVER"
+    }
+  }
+}

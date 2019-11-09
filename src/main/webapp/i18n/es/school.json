@@ -1,0 +1,41 @@
+{
+  "webApp": {
+    "school": {
+      "home": {
+        "title": "Schools",
+        "createLabel": "Crear nuevo School",
+        "createOrEditLabel": "Crear o editar School",
+        "search": "Search for School",
+        "notFound": "No Schools found"
+      },
+      "created": "Un nuevo School ha sido creado con el identificador {{ param }}",
+      "updated": "Un School ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un School ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar School {{ id }}?"
+      },
+      "detail": {
+        "title": "School"
+      },
+      "salesforceUID": "Salesforce UID",
+      "legacySchoolID": "Legacy School ID",
+      "schoolName": "School Name",
+      "sponsored": "Sponsored",
+      "attendanceTotal": "Attendance Total",
+      "attendanceBoys": "Attendance Boys",
+      "attendanceGirls": "Attendance Girls",
+      "enrolmentTotal": "Enrolment Total",
+      "locationCoordinateX": "Location Coordinate X",
+      "locationCoordinateY": "Location Coordinate Y",
+      "imageBanner": "Image Banner",
+      "textBanner": "Text Banner",
+      "imageOne": "Image One",
+      "imageTwo": "Image Two",
+      "imageThree": "Image Three",
+      "imageFour": "Image Four",
+      "dateOfLastStockCheck": "Date Of Last Stock Check",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date"
+    }
+  }
+}

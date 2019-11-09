@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="now()" dbms="mysql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="clob" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183320_added_entity_HomePage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183321_added_entity_Message.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183322_added_entity_News.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183323_added_entity_FurtherInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183324_added_entity_Donation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183325_added_entity_Supporter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183326_added_entity_Staff.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183327_added_entity_Affiliate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183328_added_entity_Project.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183329_added_entity_Event.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183330_added_entity_School.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183331_added_entity_Commodity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183332_added_entity_ReasonForNonFeeding.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183333_added_entity_Delivery.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20191030183324_added_entity_constraints_Donation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183325_added_entity_constraints_Supporter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183326_added_entity_constraints_Staff.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183328_added_entity_constraints_Project.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183329_added_entity_constraints_Event.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183331_added_entity_constraints_Commodity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183332_added_entity_constraints_ReasonForNonFeeding.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191030183333_added_entity_constraints_Delivery.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

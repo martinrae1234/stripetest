@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="supporter">
+            <h2><span jhiTranslate="webApp.supporter.detail.title">Supporter</span> {{supporter.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.supporter.salesforceUID">Salesforce UID</span></dt>
+                <dd>
+                    <span>{{supporter.salesforceUID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.ageCategory">Age Category</span></dt>
+                <dd>
+                    <span>{{supporter.ageCategory}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.supporterSalutation">Supporter Salutation</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.SupporterSalutation.' + supporter.supporterSalutation}}">{{supporter.supporterSalutation}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{supporter.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.secondName">Second Name</span></dt>
+                <dd>
+                    <span>{{supporter.secondName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.email">Email</span></dt>
+                <dd>
+                    <span>{{supporter.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.streetAddress">Street Address</span></dt>
+                <dd>
+                    <span>{{supporter.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.city">City</span></dt>
+                <dd>
+                    <span>{{supporter.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.county">County</span></dt>
+                <dd>
+                    <span>{{supporter.county}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.postcode">Postcode</span></dt>
+                <dd>
+                    <span>{{supporter.postcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.country">Country</span></dt>
+                <dd>
+                    <span>{{supporter.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.supporterPicture">Supporter Picture</span></dt>
+                <dd>
+                    <div *ngIf="supporter.supporterPicture">
+                        <a (click)="openFile(supporter.supporterPictureContentType, supporter.supporterPicture)">
+                            <img [src]="'data:' + supporter.supporterPictureContentType + ';base64,' + supporter.supporterPicture" style="max-width: 100%;" alt="supporter image"/>
+                        </a>
+                        {{supporter.supporterPictureContentType}}, {{byteSize(supporter.supporterPicture)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.contactableByEmail">Contactable By Email</span></dt>
+                <dd>
+                    <span>{{supporter.contactableByEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.contactableByPost">Contactable By Post</span></dt>
+                <dd>
+                    <span>{{supporter.contactableByPost}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.locationCoordinateX">Location Coordinate X</span></dt>
+                <dd>
+                    <span>{{supporter.locationCoordinateX}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.locationCoordinateY">Location Coordinate Y</span></dt>
+                <dd>
+                    <span>{{supporter.locationCoordinateY}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.facebookUrl">Facebook Url</span></dt>
+                <dd>
+                    <span>{{supporter.facebookUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.instagramUrl">Instagram Url</span></dt>
+                <dd>
+                    <span>{{supporter.instagramUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.twitterUrl">Twitter Url</span></dt>
+                <dd>
+                    <span>{{supporter.twitterUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{supporter.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{supporter.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.user">User</span></dt>
+                <dd>
+                    {{supporter.user?.login}}
+                </dd>
+                <dt><span jhiTranslate="webApp.supporter.supporterOfAffiliate">Supporter Of Affiliate</span></dt>
+                <dd>
+                    <div *ngIf="supporter.supporterOfAffiliate">
+                        <a [routerLink]="['/affiliate', supporter.supporterOfAffiliate?.id, 'view']">{{supporter.supporterOfAffiliate?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/supporter', supporter.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

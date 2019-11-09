@@ -1,0 +1,75 @@
+<div class="row d-flex justify-content-center">
+<div class="container col-md-12 container-fluid">
+  <img [src]="'data:' + news.bannerPictureContentType + ';base64,' + news.bannerPicture" class="img-responsive card-img" alt="news image">
+  <div class="card-img-overlay">
+    <h1 class="card-title" style="font-size:4rem align"><b>News and Blogs</b></h1>
+  </div>
+</div>
+</div>
+
+  
+    <div class="container-fluid col-md-8">
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider" style="margin-top:3rem;">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h1 class="featurette-heading" style="margin-bottom:1rem; color:#0098d9">{{news.bannerName}}</h1><span><h4>written by {{news.createdByUserId}} on {{news.dateOfNewsCreation}}</h4></span> 
+      </div>
+    </div>  
+        <hr class="featurette-divider">
+    
+       <div class="row featurette">
+      <div class="col-md-7">
+        <p class="lead">{{news.descriptionTwo}}</p>
+      </div>
+      <div class="col-md-5">
+        <img class="img-responsive featurette-image img-fluid mx-auto" [src]="'data:' + news.pictureOneContentType + ';base64,' + news.pictureOne"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+      </div>
+    </div>
+  
+  
+   
+
+    <div class="row featurette" style="margin-top: 3rem;">
+      <div class="col-md-7 order-md-2">
+        <p class="lead">{{news.descriptionThree}}</p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" [src]="'data:' + news.pictureTwoContentType + ';base64,' + news.pictureTwo"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
+      </div>
+    </div>
+
+  <hr class="featurette-divider">
+    <!-- /END THE FEATURETTES -->
+
+
+ 
+ <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading" style="color:#0098d9">{{news.descriptionOne}}</h1>
+      <p class="lead text-muted white-space"></p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Set up a Monthly Donation</a>
+        <a href="#" class="btn btn-secondary my-2">Make a Single Donation</a>
+      </p>
+    </div>
+  </section>
+    
+    <hr class="featurette-divider">
+
+    <div class="row col-md-12">
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+    </div>
+    </div>
+
+
+
+
+
+

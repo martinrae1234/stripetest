@@ -1,0 +1,10 @@
+{
+  "webApp": {
+    "Currency": {
+      "null": "",
+      "GBP": "GBP",
+      "USD": "USD",
+      "EURO": "EURO"
+    }
+  }
+}

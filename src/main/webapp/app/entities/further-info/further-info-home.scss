@@ -1,0 +1,40 @@
+
+.card:hover {
+  transform: scale(1.055); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.card-title {
+  text-align: center;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 100%;
+  font: "Campton-Bold", Helvetica, Arial, sans-serif;
+  color: white; 
+}
+
+.card-body {
+  text-align: center;
+  font: "Campton-Bold", Helvetica, Arial, sans-serif; 
+  background-color:#009ddc;
+  color: white;
+}
+
+.card {
+ margin:20px;
+}
+
+.card-img {
+  height: 30em;
+  object-fit: cover;
+  box-shadow: 0 0 5px black;
+
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+}

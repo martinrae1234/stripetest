@@ -1,0 +1,44 @@
+{
+  "webApp": {
+    "donation": {
+      "home": {
+        "title": "Mary's Meals",
+        "createLabel": "Create a new Donation",
+        "createOrEditLabel": "Create or edit a Donation",
+        "search": "Search for Donation",
+        "notFound": "No Donations found"
+      },
+      "created": "A new Donation is created with identifier {{ param }}",
+      "updated": "A Donation is updated with identifier {{ param }}",
+      "deleted": "A Donation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Donation {{ id }}?"
+      },
+      "detail": {
+        "title": "Donation"
+      },
+      "salesforceUID": "Salesforce UID",
+      "currency": "Currency",
+      "amount": "Amount",
+      "paymentMethod": "Payment Method",
+      "frequency": "Frequency",
+      "ageCategory": "Age Category",
+      "giftAidable": "Gift Aidable",
+      "giftAidMessage": "Gift Aid Message",
+      "accountHolderName": "Account Holder Name",
+      "accountNumber": "Account Number",
+      "sortcode": "Sortcode",
+      "collectionDate": "Collection Date",
+      "isAccountHolder": "Is Account Holder",
+      "cardType": "Card Type",
+      "cardNumber": "Card Number",
+      "expiryMonth": "Expiry Month",
+      "expiryYear": "Expiry Year",
+      "cardSecurityCode": "Card Security Code",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date",
+      "donationToSupporter": "Donation To Supporter",
+      "donatesToProject": "Donates To Project"
+    }
+  }
+}

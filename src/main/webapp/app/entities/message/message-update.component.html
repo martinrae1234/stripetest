@@ -1,0 +1,182 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-message-heading">Create or edit a Message</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_activeMessage">Active Message</label>
+                    <input type="checkbox" class="form-control" name="activeMessage" id="field_activeMessage"
+                           formControlName="activeMessage"/>
+                    <div *ngIf="editForm.get('activeMessage').invalid && (editForm.get('activeMessage').dirty || editForm.get('activeMessage').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('activeMessage').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bannerPicture">Banner Picture</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('bannerPictureContentType').value + ';base64,' + editForm.get('bannerPicture').value" style="max-height: 100px;" *ngIf="editForm.get('bannerPicture').value" alt="message image"/>
+                        <div *ngIf="editForm.get('bannerPicture').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('bannerPictureContentType').value}}, {{byteSize(editForm.get('bannerPicture').value)}}</span>
+                            <button type="button" (click)="clearInputImage('bannerPicture', 'bannerPictureContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_bannerPicture" (change)="setFileData($event, 'bannerPicture', true)" accept="image/*"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="bannerPicture" id="field_bannerPicture"
+                           formControlName="bannerPicture"/>
+                    <input type="hidden" class="form-control" name="bannerPictureContentType" id="field_bannerPictureContentType"
+                           formControlName="bannerPictureContentType" />
+                    <div *ngIf="editForm.get('bannerPicture').invalid && (editForm.get('bannerPicture').dirty || editForm.get('bannerPicture').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bannerPicture').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bannerName">Banner Name</label>
+                    <input type="text" class="form-control" name="bannerName" id="field_bannerName"
+                           formControlName="bannerName"/>
+                    <div *ngIf="editForm.get('bannerName').invalid && (editForm.get('bannerName').dirty || editForm.get('bannerName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bannerName').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_headingOne">Heading One</label>
+                    <input type="text" class="form-control" name="headingOne" id="field_headingOne"
+                           formControlName="headingOne"/>
+                    <div *ngIf="editForm.get('headingOne').invalid && (editForm.get('headingOne').dirty || editForm.get('headingOne').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('headingOne').errors.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('headingOne').errors.maxlength">
+                        This field cannot be longer than 40 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descriptionOne">Description One</label>
+                    <textarea class="form-control" name="descriptionOne" id="field_descriptionOne"
+                              formControlName="descriptionOne"></textarea>
+                    <div *ngIf="editForm.get('descriptionOne').invalid && (editForm.get('descriptionOne').dirty || editForm.get('descriptionOne').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('descriptionOne').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quotePicture">Quote Picture</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('quotePictureContentType').value + ';base64,' + editForm.get('quotePicture').value" style="max-height: 100px;" *ngIf="editForm.get('quotePicture').value" alt="message image"/>
+                        <div *ngIf="editForm.get('quotePicture').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('quotePictureContentType').value}}, {{byteSize(editForm.get('quotePicture').value)}}</span>
+                            <button type="button" (click)="clearInputImage('quotePicture', 'quotePictureContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_quotePicture" (change)="setFileData($event, 'quotePicture', true)" accept="image/*"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="quotePicture" id="field_quotePicture"
+                           formControlName="quotePicture"/>
+                    <input type="hidden" class="form-control" name="quotePictureContentType" id="field_quotePictureContentType"
+                           formControlName="quotePictureContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quoteContent">Quote Content</label>
+                    <input type="text" class="form-control" name="quoteContent" id="field_quoteContent"
+                           formControlName="quoteContent"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_headerTwo">Header Two</label>
+                    <input type="text" class="form-control" name="headerTwo" id="field_headerTwo"
+                           formControlName="headerTwo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_descriptionTwo">Description Two</label>
+                    <textarea class="form-control" name="descriptionTwo" id="field_descriptionTwo"
+                              formControlName="descriptionTwo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bottomPicture">Bottom Picture</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('bottomPictureContentType').value + ';base64,' + editForm.get('bottomPicture').value" style="max-height: 100px;" *ngIf="editForm.get('bottomPicture').value" alt="message image"/>
+                        <div *ngIf="editForm.get('bottomPicture').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('bottomPictureContentType').value}}, {{byteSize(editForm.get('bottomPicture').value)}}</span>
+                            <button type="button" (click)="clearInputImage('bottomPicture', 'bottomPictureContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_bottomPicture" (change)="setFileData($event, 'bottomPicture', true)" accept="image/*"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="bottomPicture" id="field_bottomPicture"
+                           formControlName="bottomPicture"/>
+                    <input type="hidden" class="form-control" name="bottomPictureContentType" id="field_bottomPictureContentType"
+                           formControlName="bottomPictureContentType" />
+                    <div *ngIf="editForm.get('bottomPicture').invalid && (editForm.get('bottomPicture').dirty || editForm.get('bottomPicture').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bottomPicture').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bottomDescription">Bottom Description</label>
+                    <textarea class="form-control" name="bottomDescription" id="field_bottomDescription"
+                              formControlName="bottomDescription"></textarea>
+                    <div *ngIf="editForm.get('bottomDescription').invalid && (editForm.get('bottomDescription').dirty || editForm.get('bottomDescription').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bottomDescription').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_buttonText">Button Text</label>
+                    <input type="text" class="form-control" name="buttonText" id="field_buttonText"
+                           formControlName="buttonText"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_buttonURL">Button URL</label>
+                    <input type="text" class="form-control" name="buttonURL" id="field_buttonURL"
+                           formControlName="buttonURL"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

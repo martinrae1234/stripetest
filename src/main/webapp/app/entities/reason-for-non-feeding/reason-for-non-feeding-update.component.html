@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-reason-for-non-feeding-heading" jhiTranslate="webApp.reasonForNonFeeding.home.createOrEditLabel">Create or edit a Reason For Non Feeding</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.reasonForNonFeeding.dateOfNonFeeding" for="field_dateOfNonFeeding">Date Of Non Feeding</label>
+                    <div class="d-flex">
+                        <input id="field_dateOfNonFeeding" type="datetime-local" class="form-control" name="dateOfNonFeeding" formControlName="dateOfNonFeeding" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.reasonForNonFeeding.reasonForNonFeeding" for="field_reasonForNonFeeding">Reason For Non Feeding</label>
+                    <input type="text" class="form-control" name="reasonForNonFeeding" id="field_reasonForNonFeeding"
+                           formControlName="reasonForNonFeeding"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.reasonForNonFeeding.createdByUserId" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.reasonForNonFeeding.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.reasonForNonFeeding.schoolNotFed" for="field_schoolNotFed">School Not Fed</label>
+                    <select class="form-control" id="field_schoolNotFed" name="schoolNotFed" formControlName="schoolNotFed">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="schoolOption.id === editForm.get('schoolNotFed').value?.id ? editForm.get('schoolNotFed').value : schoolOption" *ngFor="let schoolOption of schools; trackBy: trackSchoolById">{{schoolOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

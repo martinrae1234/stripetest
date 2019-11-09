@@ -1,0 +1,108 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.donation.home.title">Donations</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-donation" [routerLink]="['/donation/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.donation.home.createLabel">
+            Create a new Donation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="donations?.length === 0">
+        <span jhiTranslate="webApp.donation.home.notFound">No donations found</span>
+    </div>
+    <div class="table-responsive" *ngIf="donations?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="salesforceUID"><span jhiTranslate="webApp.donation.salesforceUID">Salesforce UID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="currency"><span jhiTranslate="webApp.donation.currency">Currency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="amount"><span jhiTranslate="webApp.donation.amount">Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="paymentMethod"><span jhiTranslate="webApp.donation.paymentMethod">Payment Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="frequency"><span jhiTranslate="webApp.donation.frequency">Frequency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ageCategory"><span jhiTranslate="webApp.donation.ageCategory">Age Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="giftAidable"><span jhiTranslate="webApp.donation.giftAidable">Gift Aidable</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="giftAidMessage"><span jhiTranslate="webApp.donation.giftAidMessage">Gift Aid Message</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="accountHolderName"><span jhiTranslate="webApp.donation.accountHolderName">Account Holder Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="accountNumber"><span jhiTranslate="webApp.donation.accountNumber">Account Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="sortcode"><span jhiTranslate="webApp.donation.sortcode">Sortcode</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="collectionDate"><span jhiTranslate="webApp.donation.collectionDate">Collection Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="isAccountHolder"><span jhiTranslate="webApp.donation.isAccountHolder">Is Account Holder</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cardType"><span jhiTranslate="webApp.donation.cardType">Card Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cardNumber"><span jhiTranslate="webApp.donation.cardNumber">Card Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="expiryMonth"><span jhiTranslate="webApp.donation.expiryMonth">Expiry Month</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="expiryYear"><span jhiTranslate="webApp.donation.expiryYear">Expiry Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="cardSecurityCode"><span jhiTranslate="webApp.donation.cardSecurityCode">Card Security Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdByUserId"><span jhiTranslate="webApp.donation.createdByUserId">Created By User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="webApp.donation.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="donationToSupporter.id"><span jhiTranslate="webApp.donation.donationToSupporter">Donation To Supporter</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="donatesToProject.id"><span jhiTranslate="webApp.donation.donatesToProject">Donates To Project</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let donation of donations ;trackBy: trackId">
+                <td><a [routerLink]="['/donation', donation.id, 'view' ]">{{donation.id}}</a></td>
+                <td>{{donation.salesforceUID}}</td>
+                <td jhiTranslate="{{'webApp.Currency.' + donation.currency}}">{{donation.currency}}</td>
+                <td>{{donation.amount}}</td>
+                <td jhiTranslate="{{'webApp.PaymentMethod.' + donation.paymentMethod}}">{{donation.paymentMethod}}</td>
+                <td jhiTranslate="{{'webApp.Frequency.' + donation.frequency}}">{{donation.frequency}}</td>
+                <td>{{donation.ageCategory}}</td>
+                <td>{{donation.giftAidable}}</td>
+                <td>{{donation.giftAidMessage}}</td>
+                <td>{{donation.accountHolderName}}</td>
+                <td>{{donation.accountNumber}}</td>
+                <td>{{donation.sortcode}}</td>
+                <td jhiTranslate="{{'webApp.CollectionDate.' + donation.collectionDate}}">{{donation.collectionDate}}</td>
+                <td>{{donation.isAccountHolder}}</td>
+                <td jhiTranslate="{{'webApp.CardType.' + donation.cardType}}">{{donation.cardType}}</td>
+                <td>{{donation.cardNumber}}</td>
+                <td>{{donation.expiryMonth}}</td>
+                <td>{{donation.expiryYear}}</td>
+                <td>{{donation.cardSecurityCode}}</td>
+                <td>{{donation.createdByUserId}}</td>
+                <td>{{donation.createdDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="donation.donationToSupporter">
+                        <a [routerLink]="['/supporter', donation.donationToSupporter?.id, 'view' ]" >{{donation.donationToSupporter?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="donation.donatesToProject">
+                        <a [routerLink]="['/project', donation.donatesToProject?.id, 'view' ]" >{{donation.donatesToProject?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/donation', donation.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/donation', donation.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/donation', { outlets: { popup: donation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

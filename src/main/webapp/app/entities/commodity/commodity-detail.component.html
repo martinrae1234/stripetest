@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commodity">
+            <h2><span jhiTranslate="webApp.commodity.detail.title">Commodity</span> {{commodity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.commodity.dateOfLastStockCheck">Date Of Last Stock Check</span></dt>
+                <dd>
+                    <span>{{commodity.dateOfLastStockCheck}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.commodity.name">Name</span></dt>
+                <dd>
+                    <span>{{commodity.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.commodity.amount">Amount</span></dt>
+                <dd>
+                    <span>{{commodity.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.commodity.perishable">Perishable</span></dt>
+                <dd>
+                    <span>{{commodity.perishable}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.commodity.amountExpirableInNext3months">Amount Expirable In Next 3 Months</span></dt>
+                <dd>
+                    <span>{{commodity.amountExpirableInNext3months}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.commodity.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{commodity.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.commodity.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{commodity.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.commodity.commodityForSchool">Commodity For School</span></dt>
+                <dd>
+                    <div *ngIf="commodity.commodityForSchool">
+                        <a [routerLink]="['/school', commodity.commodityForSchool?.id, 'view']">{{commodity.commodityForSchool?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commodity', commodity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

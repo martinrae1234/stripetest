@@ -1,0 +1,40 @@
+{
+    "name": "ReasonForNonFeeding",
+    "fields": [
+        {
+            "fieldName": "dateOfNonFeeding",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "reasonForNonFeeding",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdByUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "school",
+            "otherEntityRelationshipName": "reasonForNonFeeding",
+            "relationshipName": "schoolNotFed",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191030183332",
+    "entityTableName": "reason_for_non_feeding",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

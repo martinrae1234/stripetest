@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="containerOut">
+             <div class="col-md-3"> 
+
+                        <div [ngSwitch]="isAuthenticated()">
+                        <div class="alert alert-success" *ngSwitchCase="true" style="z-index:5;">
+                            <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
+                                [translateValues]="{username: account.login}"> You are logged in as: "{{account.login}}". </span>
+                        </div>
+                        
+                        <div class="alert alert-warning" *ngSwitchCase="false" style="z-index:5; margin:4px; align-content: center;">
+                            <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a>
+                        </div>
+                        <div class="alert alert-warning" *ngSwitchCase="false" style="z-index:5; margin:4px;">
+                            <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+                        </div>
+                        </div>
+                    </div>  
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://d2dq5v26acvckf.cloudfront.net/assets/global/LATEST_TEASER_low.mp4" type="video/mp4">   
+        </video>
+              <div>
+                <h5 class="joinUs" jhiTranslate="home.joinus"><b>Join Us</b></h5>
+              </div>
+              <div>
+
+      
+
+                <div class="row row d-flex justify-content-center">
+<button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" style="margin-right:5px;" [routerLink]="['/message/new']">
+            <span style="font-size: 2rem;">
+               Donate
+            </span>
+        </button> 
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" style="margin-left:5px;" [routerLink]="['/message/new']">
+            <span style="font-size: 2rem;">
+                Fundraise
+            </span>
+        </button> 
+                </div>
+                      <h5 class="joinUsBody col-md-12" jhiTranslate="home.joinusmessage" style="padding: 1rem;"><b>With 64 million children out of school and many 
+                     more hungry, our work is only just beginning.</b></h5>
+                  </div>
+            </div>
+                        
+    </div>
+</div>
+<br>
+<!--div class="row">
+    <div class="col-md-12">
+        <span class="woodenPanel img-fluid">
+                <div class="row">
+                    <div class="col-md-6"> 
+                    </div>  
+                </div>              
+            <div class="row row d-flex justify-content-center">
+              <div class="col-md-6">
+                <h5 class="joinUsBody" jhiTranslate="home.donate"><b><u>Donate</u></b></h5>
+                <div class="col-md-4"></div>
+                </div>
+              <div class="col-md-6">
+                <h5 class="joinUsBody" jhiTranslate="home.startfundraising"><b><u>Start Fundraising</u></b></h5>
+                <h5 class="joinUsBodySmall" jhiTranslate="home.startfundraisingsmall"><b>A few ideas on how to start raising funds for Mary's Meals.....</b></h5>               
+            </div>
+            </div>
+        </span>
+    </div>
+</div-->
+
+<hr>
+
+<div class="col-md-12">
+        <div class="time-icon"></div>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-9">
+        <div class="messageHeader" jhiTranslate="home.explore"><b>Explore</b></div>    
+    </div>
+</div>
+    
+<jhi-message-home></jhi-message-home>
+
+<hr>
+<div class="col-md-12">
+        <div class="news-icon"></div>
+</div>
+
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-9">
+        <div class="messageHeader" jhiTranslate="home.news"><b>Latest News and Blogs</b></div>    
+    </div>
+</div>
+
+<jhi-news-home></jhi-news-home>
+
+<hr>
+<div class="col-md-12">
+        <div class="arrow-icon"></div>
+</div>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-md-9">
+        <div class="messageHeader" jhiTranslate="home.findout"><b>Find out more</b></div>    
+    </div>
+</div>
+
+<jhi-further-info-home></jhi-further-info-home>
+

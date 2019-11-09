@@ -1,0 +1,113 @@
+<div >
+    <h2 id="page-heading">
+        <span>News</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-news" [routerLink]="['/news/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new News
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="news?.length === 0">
+        <span>No news found</span>
+    </div>
+    <div class="table-responsive" *ngIf="news?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span>ID</span></th>
+            <th scope="col" ><span>Active Message</span></th>
+            <th scope="col" ><span>Banner Picture</span></th>
+            <th scope="col" ><span>Date Of News Creation</span></th>
+            <th scope="col" ><span>Banner Name</span></th>
+            <th scope="col" ><span>Description One</span></th>
+            <th scope="col" ><span>Picture One</span></th>
+            <th scope="col" ><span>Description Two</span></th>
+            <th scope="col" ><span>Picture Two</span></th>
+            <th scope="col" ><span>Description Three</span></th>
+            <th scope="col" ><span>Picture Three</span></th>
+            <th scope="col" ><span>Bottom Picture</span></th>
+            <th scope="col" ><span>Bottom Description</span></th>
+            <th scope="col" ><span>Button Text</span></th>
+            <th scope="col" ><span>Button URL</span></th>
+            <th scope="col" ><span>Created By User Id</span></th>
+            <th scope="col" ><span>Created Date</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let news of news ;trackBy: trackId">
+                <td><a [routerLink]="['/news', news.id, 'view' ]">{{news.id}}</a></td>
+                <td>{{news.activeMessage}}</td>
+                <td>
+                    <a *ngIf="news.bannerPicture" (click)="openFile(news.bannerPictureContentType, news.bannerPicture)">
+                        <img [src]="'data:' + news.bannerPictureContentType + ';base64,' + news.bannerPicture" style="max-height: 30px;" alt="news image"/>
+                    </a>
+                    <span *ngIf="news.bannerPicture">{{news.bannerPictureContentType}}, {{byteSize(news.bannerPicture)}}</span>
+                </td>
+                <td>{{news.dateOfNewsCreation | date:'medium'}}</td>
+                <td>{{news.bannerName}}</td>
+                <td>{{news.descriptionOne}}</td>
+                <td>
+                    <a *ngIf="news.pictureOne" (click)="openFile(news.pictureOneContentType, news.pictureOne)">
+                        <img [src]="'data:' + news.pictureOneContentType + ';base64,' + news.pictureOne" style="max-height: 30px;" alt="news image"/>
+                    </a>
+                    <span *ngIf="news.pictureOne">{{news.pictureOneContentType}}, {{byteSize(news.pictureOne)}}</span>
+                </td>
+                <td>{{news.descriptionTwo}}</td>
+                <td>
+                    <a *ngIf="news.pictureTwo" (click)="openFile(news.pictureTwoContentType, news.pictureTwo)">
+                        <img [src]="'data:' + news.pictureTwoContentType + ';base64,' + news.pictureTwo" style="max-height: 30px;" alt="news image"/>
+                    </a>
+                    <span *ngIf="news.pictureTwo">{{news.pictureTwoContentType}}, {{byteSize(news.pictureTwo)}}</span>
+                </td>
+                <td>{{news.descriptionThree}}</td>
+                <td>
+                    <a *ngIf="news.pictureThree" (click)="openFile(news.pictureThreeContentType, news.pictureThree)">
+                        <img [src]="'data:' + news.pictureThreeContentType + ';base64,' + news.pictureThree" style="max-height: 30px;" alt="news image"/>
+                    </a>
+                    <span *ngIf="news.pictureThree">{{news.pictureThreeContentType}}, {{byteSize(news.pictureThree)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="news.bottomPicture" (click)="openFile(news.bottomPictureContentType, news.bottomPicture)">
+                        <img [src]="'data:' + news.bottomPictureContentType + ';base64,' + news.bottomPicture" style="max-height: 30px;" alt="news image"/>
+                    </a>
+                    <span *ngIf="news.bottomPicture">{{news.bottomPictureContentType}}, {{byteSize(news.bottomPicture)}}</span>
+                </td>
+                <td>{{news.bottomDescription}}</td>
+                <td>{{news.buttonText}}</td>
+                <td>{{news.buttonURL}}</td>
+                <td>{{news.createdByUserId}}</td>
+                <td>{{news.createdDate | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/news', news.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/news', news.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/news', { outlets: { popup: news.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

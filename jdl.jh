@@ -1,0 +1,279 @@
+enum TypeOfProject {
+	GENERALFUNDRAISING, SPONSORASCHOOL
+}
+
+entity HomePage {
+	costOfFeedingAChild Double,
+    typeOfProject TypeOfProject
+}
+
+entity Message {
+	 activeMessage Boolean required,
+	 bannerPicture ImageBlob required,
+	 bannerName String required, 
+     headingOne String required maxlength(40), 
+	 descriptionOne TextBlob required, 
+     quotePicture ImageBlob, 
+     quoteContent String, 
+     headerTwo String, 
+     descriptionTwo TextBlob, 
+     bottomPicture ImageBlob required,
+     bottomDescription TextBlob required, 
+     buttonText String, 
+     buttonURL String,
+     createdByUserId Long,
+     createdDate Instant
+}
+
+entity News {
+    activeMessage Boolean required,
+	bannerPicture ImageBlob required, 
+    dateOfNewsCreation Instant, 
+    bannerName String required, 
+    descriptionOne TextBlob required,
+	pictureOne ImageBlob required,
+    descriptionTwo TextBlob,
+	pictureTwo ImageBlob,
+    descriptionThree TextBlob,
+	pictureThree ImageBlob,
+    bottomPicture ImageBlob required,
+    bottomDescription String required, 
+    buttonText String, 
+    buttonURL String,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+entity FurtherInfo {
+    activeFurtherInfo Boolean required,
+	bannerPicture ImageBlob required,  
+    bannerName String required maxlength(40),
+    headerOne String required,
+    descriptionOne TextBlob required ,
+	pictureOne ImageBlob required,
+    descriptionTwo TextBlob,
+	pictureTwo ImageBlob,
+    descriptionThree TextBlob,
+	pictureThree ImageBlob,
+    bottomPicture ImageBlob required,
+    bottomDescription String required, 
+    buttonText String, 
+    buttonURL String,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+enum Frequency {
+	SINGLE, MONTHLY, YEARLY
+}
+
+enum PaymentMethod {
+	DIRECTDEBIT, CARDPAYMENT
+}
+
+enum Currency {
+	GBP, USD, EURO
+}
+
+entity Donation {
+	salesforceUID String,
+    currency Currency,
+    amount Double required,
+    paymentMethod PaymentMethod required,
+    frequency Frequency required,
+    ageCategory Boolean required,
+    giftAidable Boolean required,
+    giftAidMessage String required,
+    accountHolderName String required,
+    accountNumber Integer,
+    sortcode Integer,
+    collectionDate CollectionDate required,
+	isAccountHolder Boolean required,     
+    cardType CardType,
+    cardNumber Long,
+    expiryMonth Integer,
+    expiryYear Integer,
+    cardSecurityCode Integer,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+
+enum SupporterSalutation {
+	 MR, MRS, MISS, MS
+}
+
+enum CollectionDate {
+	FIRST, ELEVENTH
+}
+
+enum CardType {
+    VISA, MASTERCARD, DISCOVER
+}
+
+entity Supporter {
+	salesforceUID String,
+    ageCategory Boolean required,
+    supporterSalutation SupporterSalutation,
+    firstName String required, 
+    secondName String required,
+    email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/) 
+    streetAddress String required, 
+    city String required,
+    county String required,
+    postcode String required, 
+    country String required, 
+    supporterPicture ImageBlob,
+    contactableByEmail Boolean required,
+    contactableByPost Boolean required,
+    locationCoordinateX Float required,
+    locationCoordinateY Float required,
+    facebookUrl String,
+    instagramUrl String,
+    twitterUrl String,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+enum TypeOfStaff {
+	STAFF, VOLUNTEER
+}
+
+entity Staff {
+	salesforceUID String,
+    firstName String required, 
+    secondName String required,
+    affiliate String,
+    typeOfStaff TypeOfStaff,
+    locationCoordinateX Float required,
+    locationCoordinateY Float required,
+    staffPicture ImageBlob required,
+    position String required,
+    description TextBlob required,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+entity Affiliate {
+	salesforceUID String,
+    affiliateName String,
+    currency Currency,
+    streetAddress String required, 
+    city String required,
+    county String required,
+    postcode String required, 
+    country String required, 
+    email String  pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/) 
+    phoneNumber String,
+    locationCoordinateX Float required,
+    locationCoordinateY Float required,
+    defaultLanguage String,
+    cardPayment Boolean,
+    singleCardPayment Boolean,
+    recurringCardPayment Boolean,
+    directDebit Boolean,
+    giftAid Boolean,
+    generalFundraising Boolean,
+    schoolFundraising Boolean,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+entity Project {
+    salesforceUID String,
+    typeOfProject TypeOfProject required,
+    fundraisingTarget Double required,
+    ageCategory Boolean required,
+    projectName String required,
+    projectDescription TextBlob,
+    projectImage ImageBlob,
+    sponsorshipStart LocalDate,
+    sponsorshipEndDate LocalDate,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+entity Event {
+	salesforceUID String,
+    eventName String,
+    eventDate ZonedDateTime,
+    eventDescription String,
+    eventBanner ImageBlob,
+    eventPictureOne ImageBlob,
+    eventPrictureTwo ImageBlob,
+    locationCoordinateX Float required,
+    locationCoordinateY Float required,
+    attendees Integer,
+    maximumAttendees Integer,
+    createdByUserId Long,
+    createdDate Instant,
+}
+
+entity School {
+	salesforceUID String,
+    legacySchoolID String,
+    schoolName String required,
+    sponsored Boolean,
+    attendanceTotal Integer,
+    attendanceBoys Integer required,
+    attendanceGirls Integer required,
+    enrolmentTotal Integer required,
+    locationCoordinateX Float required,
+    locationCoordinateY Float required,
+    imageBanner ImageBlob,
+    textBanner String,
+    imageOne ImageBlob,
+    imageTwo ImageBlob,
+    imageThree ImageBlob,
+    imageFour ImageBlob,
+    dateOfLastStockCheck LocalDate,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+entity Commodity{
+    dateOfLastStockCheck LocalDate,
+    name String,
+    amount Double,
+    perishable Boolean,
+    amountExpirableInNext3months Double,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+entity ReasonForNonFeeding {
+	dateOfNonFeeding Instant,
+    reasonForNonFeeding String,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+entity Delivery {
+	deliveryDate LocalDate,
+	amountDeliveredRice Double,
+    amountDeliveredFlour Double,
+    deliveryNoteImage ImageBlob,
+    createdByUserId Long,
+    createdDate Instant
+}
+
+relationship OneToOne {
+  Supporter{user(login)} to User,
+  Staff{user(login)} to User,
+  Event{project(projectName)} to Project  
+}
+
+relationship ManyToOne {
+  Donation{donationToSupporter} to Supporter,
+  Donation{donatesToProject} to Project,
+  Project{projectOfsupporter} to Supporter,
+  Project{projectForSchool} to School,
+  ReasonForNonFeeding{schoolNotFed} to School,
+  Delivery{deliveryForSchool} to School,
+  Commodity{commodityForSchool} to School,
+  Supporter{supporterOfAffiliate} to Affiliate,
+  Staff{staffOfAffiliate} to Affiliate 
+}
+
+paginate School, Donation  with infinite-scroll
+paginate Supporter, Project with pagination

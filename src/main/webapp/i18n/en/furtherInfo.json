@@ -1,0 +1,38 @@
+{
+  "webApp": {
+    "furtherInfo": {
+      "home": {
+        "title": "Mary's Meals",
+        "createLabel": "Create a new Further Info",
+        "createOrEditLabel": "Create or edit a Further Info",
+        "search": "Search for Further Info",
+        "notFound": "No Further Infos found"
+      },
+      "created": "A new Further Info is created with identifier {{ param }}",
+      "updated": "A Further Info is updated with identifier {{ param }}",
+      "deleted": "A Further Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Further Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Further Info"
+      },
+      "activeFurtherInfo": "Active Further Info",
+      "bannerPicture": "Banner Picture",
+      "bannerName": "Banner Name",
+      "headerOne": "Header One",
+      "descriptionOne": "Description One",
+      "pictureOne": "Picture One",
+      "descriptionTwo": "Description Two",
+      "pictureTwo": "Picture Two",
+      "descriptionThree": "Description Three",
+      "pictureThree": "Picture Three",
+      "bottomPicture": "Bottom Picture",
+      "bottomDescription": "Bottom Description",
+      "buttonText": "Button Text",
+      "buttonURL": "Button URL",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date"
+    }
+  }
+}

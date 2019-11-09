@@ -1,0 +1,45 @@
+{
+  "webApp": {
+    "supporter": {
+      "home": {
+        "title": "Supporters",
+        "createLabel": "Create a new Supporter",
+        "createOrEditLabel": "Create or edit a Supporter",
+        "search": "Search for Supporter",
+        "notFound": "No Supporters found"
+      },
+      "created": "A new Supporter is created with identifier {{ param }}",
+      "updated": "A Supporter is updated with identifier {{ param }}",
+      "deleted": "A Supporter is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Supporter {{ id }}?"
+      },
+      "detail": {
+        "title": "Supporter"
+      },
+      "salesforceUID": "Salesforce UID",
+      "ageCategory": "Age Category",
+      "supporterSalutation": "Supporter Salutation",
+      "firstName": "First Name",
+      "secondName": "Second Name",
+      "email": "Email",
+      "streetAddress": "Street Address",
+      "city": "City",
+      "county": "County",
+      "postcode": "Postcode",
+      "country": "Country",
+      "supporterPicture": "Supporter Picture",
+      "contactableByEmail": "Contactable By Email",
+      "contactableByPost": "Contactable By Post",
+      "locationCoordinateX": "Location Coordinate X",
+      "locationCoordinateY": "Location Coordinate Y",
+      "facebookUrl": "Facebook Url",
+      "instagramUrl": "Instagram Url",
+      "twitterUrl": "Twitter Url",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date",
+      "user": "User",
+      "supporterOfAffiliate": "Supporter Of Affiliate"
+    }
+  }
+}

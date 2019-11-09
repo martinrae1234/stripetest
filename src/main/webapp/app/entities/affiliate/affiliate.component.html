@@ -1,0 +1,100 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.affiliate.home.title">Affiliates</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-affiliate" [routerLink]="['/affiliate/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.affiliate.home.createLabel">
+            Create a new Affiliate
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="affiliates?.length === 0">
+        <span jhiTranslate="webApp.affiliate.home.notFound">No affiliates found</span>
+    </div>
+    <div class="table-responsive" *ngIf="affiliates?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.salesforceUID">Salesforce UID</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.affiliateName">Affiliate Name</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.currency">Currency</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.streetAddress">Street Address</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.city">City</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.county">County</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.postcode">Postcode</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.country">Country</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.email">Email</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.phoneNumber">Phone Number</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.locationCoordinateX">Location Coordinate X</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.locationCoordinateY">Location Coordinate Y</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.defaultLanguage">Default Language</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.cardPayment">Card Payment</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.singleCardPayment">Single Card Payment</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.recurringCardPayment">Recurring Card Payment</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.directDebit">Direct Debit</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.giftAid">Gift Aid</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.generalFundraising">General Fundraising</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.schoolFundraising">School Fundraising</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.createdByUserId">Created By User Id</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.affiliate.createdDate">Created Date</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let affiliate of affiliates ;trackBy: trackId">
+                <td><a [routerLink]="['/affiliate', affiliate.id, 'view' ]">{{affiliate.id}}</a></td>
+                <td>{{affiliate.salesforceUID}}</td>
+                <td>{{affiliate.affiliateName}}</td>
+                <td jhiTranslate="{{'webApp.Currency.' + affiliate.currency}}">{{affiliate.currency}}</td>
+                <td>{{affiliate.streetAddress}}</td>
+                <td>{{affiliate.city}}</td>
+                <td>{{affiliate.county}}</td>
+                <td>{{affiliate.postcode}}</td>
+                <td>{{affiliate.country}}</td>
+                <td>{{affiliate.email}}</td>
+                <td>{{affiliate.phoneNumber}}</td>
+                <td>{{affiliate.locationCoordinateX}}</td>
+                <td>{{affiliate.locationCoordinateY}}</td>
+                <td>{{affiliate.defaultLanguage}}</td>
+                <td>{{affiliate.cardPayment}}</td>
+                <td>{{affiliate.singleCardPayment}}</td>
+                <td>{{affiliate.recurringCardPayment}}</td>
+                <td>{{affiliate.directDebit}}</td>
+                <td>{{affiliate.giftAid}}</td>
+                <td>{{affiliate.generalFundraising}}</td>
+                <td>{{affiliate.schoolFundraising}}</td>
+                <td>{{affiliate.createdByUserId}}</td>
+                <td>{{affiliate.createdDate | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/affiliate', affiliate.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/affiliate', affiliate.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/affiliate', { outlets: { popup: affiliate.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

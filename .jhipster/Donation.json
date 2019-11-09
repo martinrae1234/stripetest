@@ -1,0 +1,143 @@
+{
+    "name": "Donation",
+    "fields": [
+        {
+            "fieldName": "salesforceUID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "Currency",
+            "fieldValues": "GBP,USD,EURO"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "paymentMethod",
+            "fieldType": "PaymentMethod",
+            "fieldValues": "DIRECTDEBIT,CARDPAYMENT",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "frequency",
+            "fieldType": "Frequency",
+            "fieldValues": "SINGLE,MONTHLY,YEARLY",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ageCategory",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "giftAidable",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "giftAidMessage",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accountHolderName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accountNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sortcode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "collectionDate",
+            "fieldType": "CollectionDate",
+            "fieldValues": "FIRST,ELEVENTH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isAccountHolder",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "cardType",
+            "fieldType": "CardType",
+            "fieldValues": "VISA,MASTERCARD,DISCOVER"
+        },
+        {
+            "fieldName": "cardNumber",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "expiryMonth",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "expiryYear",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cardSecurityCode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "createdByUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "supporter",
+            "otherEntityRelationshipName": "donation",
+            "relationshipName": "donationToSupporter",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "project",
+            "otherEntityRelationshipName": "donation",
+            "relationshipName": "donatesToProject",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191030183324",
+    "entityTableName": "donation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

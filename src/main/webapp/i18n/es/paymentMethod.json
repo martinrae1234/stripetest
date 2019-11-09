@@ -1,0 +1,9 @@
+{
+  "webApp": {
+    "PaymentMethod": {
+      "null": "",
+      "DIRECTDEBIT": "DIRECTDEBIT",
+      "CARDPAYMENT": "CARDPAYMENT"
+    }
+  }
+}

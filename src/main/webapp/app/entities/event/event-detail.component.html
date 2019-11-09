@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="event">
+            <h2><span jhiTranslate="webApp.event.detail.title">Event</span> {{event.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.event.salesforceUID">Salesforce UID</span></dt>
+                <dd>
+                    <span>{{event.salesforceUID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.eventName">Event Name</span></dt>
+                <dd>
+                    <span>{{event.eventName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.eventDate">Event Date</span></dt>
+                <dd>
+                    <span>{{event.eventDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.eventDescription">Event Description</span></dt>
+                <dd>
+                    <span>{{event.eventDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.eventBanner">Event Banner</span></dt>
+                <dd>
+                    <div *ngIf="event.eventBanner">
+                        <a (click)="openFile(event.eventBannerContentType, event.eventBanner)">
+                            <img [src]="'data:' + event.eventBannerContentType + ';base64,' + event.eventBanner" style="max-width: 100%;" alt="event image"/>
+                        </a>
+                        {{event.eventBannerContentType}}, {{byteSize(event.eventBanner)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.eventPictureOne">Event Picture One</span></dt>
+                <dd>
+                    <div *ngIf="event.eventPictureOne">
+                        <a (click)="openFile(event.eventPictureOneContentType, event.eventPictureOne)">
+                            <img [src]="'data:' + event.eventPictureOneContentType + ';base64,' + event.eventPictureOne" style="max-width: 100%;" alt="event image"/>
+                        </a>
+                        {{event.eventPictureOneContentType}}, {{byteSize(event.eventPictureOne)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.eventPrictureTwo">Event Pricture Two</span></dt>
+                <dd>
+                    <div *ngIf="event.eventPrictureTwo">
+                        <a (click)="openFile(event.eventPrictureTwoContentType, event.eventPrictureTwo)">
+                            <img [src]="'data:' + event.eventPrictureTwoContentType + ';base64,' + event.eventPrictureTwo" style="max-width: 100%;" alt="event image"/>
+                        </a>
+                        {{event.eventPrictureTwoContentType}}, {{byteSize(event.eventPrictureTwo)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.locationCoordinateX">Location Coordinate X</span></dt>
+                <dd>
+                    <span>{{event.locationCoordinateX}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.locationCoordinateY">Location Coordinate Y</span></dt>
+                <dd>
+                    <span>{{event.locationCoordinateY}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.attendees">Attendees</span></dt>
+                <dd>
+                    <span>{{event.attendees}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.maximumAttendees">Maximum Attendees</span></dt>
+                <dd>
+                    <span>{{event.maximumAttendees}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{event.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{event.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.event.project">Project</span></dt>
+                <dd>
+                    <div *ngIf="event.project">
+                        <a [routerLink]="['/project', event.project?.id, 'view']">{{event.project?.projectName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/event', event.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

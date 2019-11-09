@@ -1,0 +1,153 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.card-title {
+  text-align: center;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 100%;
+  font: "Campton-Bold", Helvetica, Arial, sans-serif;
+  color: white; 
+}
+
+
+.description-one{
+  text-align: center;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  width: 100%;
+  padding: 5rem;
+  font: "Campton-Bold", Helvetica, Arial, sans-serif;
+  color: grey; 
+}
+
+
+.card-body {
+  text-align: center;
+  font: "Campton-Bold", Helvetica, Arial, sans-serif; 
+  background-color:#009ddc;
+  color: white;
+}
+
+.card {
+ margin:20px;
+ padding:20px;
+}
+
+.card-img-overlay {
+  height: 30rem;
+  object-fit: cover;
+  box-shadow: 0 0 5px black;
+}
+
+.card-img {
+  object-fit: cover;
+  height: 30rem;
+}
+
+.col-md-12 {
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.alert alert-warning {
+  position: fixed;
+  z-index: 2;
+}
+
+.arrow-icon {
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  margin-top:20px;
+  background: url('../../../content/images/arrow-icon.png') no-repeat center center;
+}
+
+.card:hover {
+  transform: none; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.card-img:hover {
+  transform: none; /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.messageHeader {
+  padding:0px;
+  text-align: center;
+  font: "Campton-Bold", Helvetica, Arial, sans-serif; 
+  color:#009ddc;
+  font-size:3vw;
+}
+
+.col-centered {
+
+  display: inline-block;
+float: none !important;
+margin-left: auto;
+margin-right: auto;
+vertical-align: top;
+}
+
+.h1{
+  display: inline-block;
+font-size: 120px;
+border-bottom: 8px solid #f3a909;
+}
+
+
+
+
+
+
+.card:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+
+.containerOut {
+  position: relative;
+  height: 100vh;
+  min-height: 40rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+
+}

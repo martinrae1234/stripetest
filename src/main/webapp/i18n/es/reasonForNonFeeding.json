@@ -1,0 +1,27 @@
+{
+  "webApp": {
+    "reasonForNonFeeding": {
+      "home": {
+        "title": "Reason For Non Feedings",
+        "createLabel": "Crear nuevo Reason For Non Feeding",
+        "createOrEditLabel": "Crear o editar Reason For Non Feeding",
+        "search": "Search for Reason For Non Feeding",
+        "notFound": "No Reason For Non Feedings found"
+      },
+      "created": "Un nuevo Reason For Non Feeding ha sido creado con el identificador {{ param }}",
+      "updated": "Un Reason For Non Feeding ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Reason For Non Feeding ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Reason For Non Feeding {{ id }}?"
+      },
+      "detail": {
+        "title": "Reason For Non Feeding"
+      },
+      "dateOfNonFeeding": "Date Of Non Feeding",
+      "reasonForNonFeeding": "Reason For Non Feeding",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date",
+      "schoolNotFed": "School Not Fed"
+    }
+  }
+}

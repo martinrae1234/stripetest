@@ -1,0 +1,101 @@
+<div>
+    <h2 id="page-heading">
+        <span>Messages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/message/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Message
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="messages?.length === 0">
+        <span>No messages found</span>
+    </div>
+    <div class="table-responsive" *ngIf="messages?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span>ID</span></th>
+            <th scope="col" ><span>Active Message</span></th>
+            <th scope="col" ><span>Banner Picture</span></th>
+            <th scope="col" ><span>Banner Name</span></th>
+            <th scope="col" ><span>Heading One</span></th>
+            <th scope="col" ><span>Description One</span></th>
+            <th scope="col" ><span>Quote Picture</span></th>
+            <th scope="col" ><span>Quote Content</span></th>
+            <th scope="col" ><span>Header Two</span></th>
+            <th scope="col" ><span>Description Two</span></th>
+            <th scope="col" ><span>Bottom Picture</span></th>
+            <th scope="col" ><span>Bottom Description</span></th>
+            <th scope="col" ><span>Button Text</span></th>
+            <th scope="col" ><span>Button URL</span></th>
+            <th scope="col" ><span>Created By User Id</span></th>
+            <th scope="col" ><span>Created Date</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let message of messages ;trackBy: trackId">
+                <td><a [routerLink]="['/message', message.id, 'view' ]">{{message.id}}</a></td>
+                <td>{{message.activeMessage}}</td>
+                <td>
+                    <a *ngIf="message.bannerPicture" (click)="openFile(message.bannerPictureContentType, message.bannerPicture)">
+                        <img [src]="'data:' + message.bannerPictureContentType + ';base64,' + message.bannerPicture" style="max-height: 30px;" alt="message image"/>
+                    </a>
+                    <span *ngIf="message.bannerPicture">{{message.bannerPictureContentType}}, {{byteSize(message.bannerPicture)}}</span>
+                </td>
+                <td>{{message.bannerName}}</td>
+                <td>{{message.headingOne}}</td>
+                <td>{{message.descriptionOne}}</td>
+                <td>
+                    <a *ngIf="message.quotePicture" (click)="openFile(message.quotePictureContentType, message.quotePicture)">
+                        <img [src]="'data:' + message.quotePictureContentType + ';base64,' + message.quotePicture" style="max-height: 30px;" alt="message image"/>
+                    </a>
+                    <span *ngIf="message.quotePicture">{{message.quotePictureContentType}}, {{byteSize(message.quotePicture)}}</span>
+                </td>
+                <td>{{message.quoteContent}}</td>
+                <td>{{message.headerTwo}}</td>
+                <td>{{message.descriptionTwo}}</td>
+                <td>
+                    <a *ngIf="message.bottomPicture" (click)="openFile(message.bottomPictureContentType, message.bottomPicture)">
+                        <img [src]="'data:' + message.bottomPictureContentType + ';base64,' + message.bottomPicture" style="max-height: 30px;" alt="message image"/>
+                    </a>
+                    <span *ngIf="message.bottomPicture">{{message.bottomPictureContentType}}, {{byteSize(message.bottomPicture)}}</span>
+                </td>
+                <td>{{message.bottomDescription}}</td>
+                <td>{{message.buttonText}}</td>
+                <td>{{message.buttonURL}}</td>
+                <td>{{message.createdByUserId}}</td>
+                <td>{{message.createdDate | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/message', message.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/message', message.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/message', { outlets: { popup: message.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

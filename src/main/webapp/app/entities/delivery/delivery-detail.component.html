@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="delivery">
+            <h2><span jhiTranslate="webApp.delivery.detail.title">Delivery</span> {{delivery.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.delivery.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{delivery.deliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.delivery.amountDeliveredRice">Amount Delivered Rice</span></dt>
+                <dd>
+                    <span>{{delivery.amountDeliveredRice}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.delivery.amountDeliveredFlour">Amount Delivered Flour</span></dt>
+                <dd>
+                    <span>{{delivery.amountDeliveredFlour}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.delivery.deliveryNoteImage">Delivery Note Image</span></dt>
+                <dd>
+                    <div *ngIf="delivery.deliveryNoteImage">
+                        <a (click)="openFile(delivery.deliveryNoteImageContentType, delivery.deliveryNoteImage)">
+                            <img [src]="'data:' + delivery.deliveryNoteImageContentType + ';base64,' + delivery.deliveryNoteImage" style="max-width: 100%;" alt="delivery image"/>
+                        </a>
+                        {{delivery.deliveryNoteImageContentType}}, {{byteSize(delivery.deliveryNoteImage)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.delivery.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{delivery.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.delivery.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{delivery.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.delivery.deliveryForSchool">Delivery For School</span></dt>
+                <dd>
+                    <div *ngIf="delivery.deliveryForSchool">
+                        <a [routerLink]="['/school', delivery.deliveryForSchool?.id, 'view']">{{delivery.deliveryForSchool?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delivery', delivery.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,240 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-school-heading" jhiTranslate="webApp.school.home.createOrEditLabel">Create or edit a School</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.salesforceUID" for="field_salesforceUID">Salesforce UID</label>
+                    <input type="text" class="form-control" name="salesforceUID" id="field_salesforceUID"
+                           formControlName="salesforceUID"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.legacySchoolID" for="field_legacySchoolID">Legacy School ID</label>
+                    <input type="text" class="form-control" name="legacySchoolID" id="field_legacySchoolID"
+                           formControlName="legacySchoolID"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.schoolName" for="field_schoolName">School Name</label>
+                    <input type="text" class="form-control" name="schoolName" id="field_schoolName"
+                           formControlName="schoolName"/>
+                    <div *ngIf="editForm.get('schoolName').invalid && (editForm.get('schoolName').dirty || editForm.get('schoolName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('schoolName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.sponsored" for="field_sponsored">Sponsored</label>
+                    <input type="checkbox" class="form-control" name="sponsored" id="field_sponsored"
+                           formControlName="sponsored"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.attendanceTotal" for="field_attendanceTotal">Attendance Total</label>
+                    <input type="number" class="form-control" name="attendanceTotal" id="field_attendanceTotal"
+                           formControlName="attendanceTotal"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.attendanceBoys" for="field_attendanceBoys">Attendance Boys</label>
+                    <input type="number" class="form-control" name="attendanceBoys" id="field_attendanceBoys"
+                           formControlName="attendanceBoys"/>
+                    <div *ngIf="editForm.get('attendanceBoys').invalid && (editForm.get('attendanceBoys').dirty || editForm.get('attendanceBoys').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('attendanceBoys').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('attendanceBoys')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.attendanceGirls" for="field_attendanceGirls">Attendance Girls</label>
+                    <input type="number" class="form-control" name="attendanceGirls" id="field_attendanceGirls"
+                           formControlName="attendanceGirls"/>
+                    <div *ngIf="editForm.get('attendanceGirls').invalid && (editForm.get('attendanceGirls').dirty || editForm.get('attendanceGirls').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('attendanceGirls').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('attendanceGirls')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.enrolmentTotal" for="field_enrolmentTotal">Enrolment Total</label>
+                    <input type="number" class="form-control" name="enrolmentTotal" id="field_enrolmentTotal"
+                           formControlName="enrolmentTotal"/>
+                    <div *ngIf="editForm.get('enrolmentTotal').invalid && (editForm.get('enrolmentTotal').dirty || editForm.get('enrolmentTotal').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('enrolmentTotal').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('enrolmentTotal')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.locationCoordinateX" for="field_locationCoordinateX">Location Coordinate X</label>
+                    <input type="number" class="form-control" name="locationCoordinateX" id="field_locationCoordinateX"
+                           formControlName="locationCoordinateX"/>
+                    <div *ngIf="editForm.get('locationCoordinateX').invalid && (editForm.get('locationCoordinateX').dirty || editForm.get('locationCoordinateX').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateX').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateX')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.locationCoordinateY" for="field_locationCoordinateY">Location Coordinate Y</label>
+                    <input type="number" class="form-control" name="locationCoordinateY" id="field_locationCoordinateY"
+                           formControlName="locationCoordinateY"/>
+                    <div *ngIf="editForm.get('locationCoordinateY').invalid && (editForm.get('locationCoordinateY').dirty || editForm.get('locationCoordinateY').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateY').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateY')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.imageBanner" for="field_imageBanner">Image Banner</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imageBannerContentType').value + ';base64,' + editForm.get('imageBanner').value" style="max-height: 100px;" *ngIf="editForm.get('imageBanner').value" alt="school image"/>
+                        <div *ngIf="editForm.get('imageBanner').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imageBannerContentType').value}}, {{byteSize(editForm.get('imageBanner').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imageBanner', 'imageBannerContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imageBanner" (change)="setFileData($event, 'imageBanner', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imageBanner" id="field_imageBanner"
+                           formControlName="imageBanner"/>
+                    <input type="hidden" class="form-control" name="imageBannerContentType" id="field_imageBannerContentType"
+                           formControlName="imageBannerContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.textBanner" for="field_textBanner">Text Banner</label>
+                    <input type="text" class="form-control" name="textBanner" id="field_textBanner"
+                           formControlName="textBanner"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.imageOne" for="field_imageOne">Image One</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imageOneContentType').value + ';base64,' + editForm.get('imageOne').value" style="max-height: 100px;" *ngIf="editForm.get('imageOne').value" alt="school image"/>
+                        <div *ngIf="editForm.get('imageOne').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imageOneContentType').value}}, {{byteSize(editForm.get('imageOne').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imageOne', 'imageOneContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imageOne" (change)="setFileData($event, 'imageOne', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imageOne" id="field_imageOne"
+                           formControlName="imageOne"/>
+                    <input type="hidden" class="form-control" name="imageOneContentType" id="field_imageOneContentType"
+                           formControlName="imageOneContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.imageTwo" for="field_imageTwo">Image Two</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imageTwoContentType').value + ';base64,' + editForm.get('imageTwo').value" style="max-height: 100px;" *ngIf="editForm.get('imageTwo').value" alt="school image"/>
+                        <div *ngIf="editForm.get('imageTwo').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imageTwoContentType').value}}, {{byteSize(editForm.get('imageTwo').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imageTwo', 'imageTwoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imageTwo" (change)="setFileData($event, 'imageTwo', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imageTwo" id="field_imageTwo"
+                           formControlName="imageTwo"/>
+                    <input type="hidden" class="form-control" name="imageTwoContentType" id="field_imageTwoContentType"
+                           formControlName="imageTwoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.imageThree" for="field_imageThree">Image Three</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imageThreeContentType').value + ';base64,' + editForm.get('imageThree').value" style="max-height: 100px;" *ngIf="editForm.get('imageThree').value" alt="school image"/>
+                        <div *ngIf="editForm.get('imageThree').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imageThreeContentType').value}}, {{byteSize(editForm.get('imageThree').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imageThree', 'imageThreeContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imageThree" (change)="setFileData($event, 'imageThree', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imageThree" id="field_imageThree"
+                           formControlName="imageThree"/>
+                    <input type="hidden" class="form-control" name="imageThreeContentType" id="field_imageThreeContentType"
+                           formControlName="imageThreeContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.imageFour" for="field_imageFour">Image Four</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imageFourContentType').value + ';base64,' + editForm.get('imageFour').value" style="max-height: 100px;" *ngIf="editForm.get('imageFour').value" alt="school image"/>
+                        <div *ngIf="editForm.get('imageFour').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imageFourContentType').value}}, {{byteSize(editForm.get('imageFour').value)}}</span>
+                            <button type="button" (click)="clearInputImage('imageFour', 'imageFourContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_imageFour" (change)="setFileData($event, 'imageFour', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="imageFour" id="field_imageFour"
+                           formControlName="imageFour"/>
+                    <input type="hidden" class="form-control" name="imageFourContentType" id="field_imageFourContentType"
+                           formControlName="imageFourContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.dateOfLastStockCheck" for="field_dateOfLastStockCheck">Date Of Last Stock Check</label>
+                    <div class="input-group">
+                        <input id="field_dateOfLastStockCheck" type="text" class="form-control" name="dateOfLastStockCheck" ngbDatepicker  #dateOfLastStockCheckDp="ngbDatepicker" formControlName="dateOfLastStockCheck"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfLastStockCheckDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.createdByUserId" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.school.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

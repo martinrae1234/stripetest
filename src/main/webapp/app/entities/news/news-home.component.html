@@ -1,0 +1,32 @@
+<div>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="alert alert-warning" *ngIf="news?.length === 0">
+        <span>Sorry, there is currently no news!</span>
+    </div>
+
+
+<br>
+<br>
+     <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-3" *ngFor="let news of news; index as i">
+            <div class="card" style="align-content: center; padding: 15px;">
+            <img class="rounded-circle" style="box-shadow: 0 0 5px black;" [src]="'data:' + news.pictureThreeContentType + ';base64,' + news.pictureThree" alt="message image" width="200" height="200">
+            <h2 style="color:#0098d9">{{news.bannerName}}</h2>
+            <p>{{news.descriptionOne}}</p>
+            <p>written by {{news.createdByUserId}} on {{news.dateOfNewsCreation}}</p>
+            <p><a class="btn btn-secondary" [routerLink]="['/news', news.id, 'view' ]" role="button">View details &raquo;</a></p>
+            </div>
+          </div><!-- /.col-lg-4 -->
+          </div><!-- /.col-lg-4 --><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+    
+
+
+
+

@@ -1,0 +1,28 @@
+{
+  "home": {
+    "title": "¡Bienvenido, Java Hipster!",
+    "subtitle": "Esta es su página de inicio",
+    "joinus": "Unete a nosotros",
+    "joinusmessage": "Con 64 millones de ninos sin escolarizar y muchos mas hambrientos, nuestro trabajo recien comienza.",
+    "donate": "Donar",
+    "startfundraising": "Comience a recaudar fondos",
+    "startfundraisingsmall": "Algunas ideas sobre como comenzar a recaudar fondos para Mary's Meals .....", 
+    "explore": "Explorar", 
+    "news": "Ultimas noticias y blogs",
+    "findout" : "Saber mas",
+    "logged": {
+      "message": "Está conectado como \"{{username}}\"."
+    },
+    "question": "Si tiene preguntas sobre JHipster:",
+    "link": {
+      "homepage": "Página de inicio de JHipster",
+      "stackoverflow": "JHipster en Stack Overflow",
+      "bugtracker": "JHipster seguimiento de errores",
+      "chat": "Sala de chat pública de JHipster",
+      "follow": "contacto @java_hipster en Twitter"
+    },
+    "like": "Si te gusta JHipster, danos una estrella en",
+    "github": "GitHub"
+  }
+}
+

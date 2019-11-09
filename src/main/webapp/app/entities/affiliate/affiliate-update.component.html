@@ -1,0 +1,194 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-affiliate-heading" jhiTranslate="webApp.affiliate.home.createOrEditLabel">Create or edit a Affiliate</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.salesforceUID" for="field_salesforceUID">Salesforce UID</label>
+                    <input type="text" class="form-control" name="salesforceUID" id="field_salesforceUID"
+                           formControlName="salesforceUID"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.affiliateName" for="field_affiliateName">Affiliate Name</label>
+                    <input type="text" class="form-control" name="affiliateName" id="field_affiliateName"
+                           formControlName="affiliateName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.currency" for="field_currency">Currency</label>
+                    <select class="form-control" name="currency" formControlName="currency" id="field_currency">
+                        <option value="GBP">{{'webApp.Currency.GBP' | translate}}</option>
+                        <option value="USD">{{'webApp.Currency.USD' | translate}}</option>
+                        <option value="EURO">{{'webApp.Currency.EURO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.streetAddress" for="field_streetAddress">Street Address</label>
+                    <input type="text" class="form-control" name="streetAddress" id="field_streetAddress"
+                           formControlName="streetAddress"/>
+                    <div *ngIf="editForm.get('streetAddress').invalid && (editForm.get('streetAddress').dirty || editForm.get('streetAddress').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('streetAddress').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                    <div *ngIf="editForm.get('city').invalid && (editForm.get('city').dirty || editForm.get('city').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('city').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.county" for="field_county">County</label>
+                    <input type="text" class="form-control" name="county" id="field_county"
+                           formControlName="county"/>
+                    <div *ngIf="editForm.get('county').invalid && (editForm.get('county').dirty || editForm.get('county').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('county').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.postcode" for="field_postcode">Postcode</label>
+                    <input type="text" class="form-control" name="postcode" id="field_postcode"
+                           formControlName="postcode"/>
+                    <div *ngIf="editForm.get('postcode').invalid && (editForm.get('postcode').dirty || editForm.get('postcode').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('postcode').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.country" for="field_country">Country</label>
+                    <input type="text" class="form-control" name="country" id="field_country"
+                           formControlName="country"/>
+                    <div *ngIf="editForm.get('country').invalid && (editForm.get('country').dirty || editForm.get('country').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('country').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email').invalid && (editForm.get('email').dirty || editForm.get('email').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email').errors.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Email' }">
+                            This field should follow pattern for "Email".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           formControlName="phoneNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.locationCoordinateX" for="field_locationCoordinateX">Location Coordinate X</label>
+                    <input type="number" class="form-control" name="locationCoordinateX" id="field_locationCoordinateX"
+                           formControlName="locationCoordinateX"/>
+                    <div *ngIf="editForm.get('locationCoordinateX').invalid && (editForm.get('locationCoordinateX').dirty || editForm.get('locationCoordinateX').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateX').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateX')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.locationCoordinateY" for="field_locationCoordinateY">Location Coordinate Y</label>
+                    <input type="number" class="form-control" name="locationCoordinateY" id="field_locationCoordinateY"
+                           formControlName="locationCoordinateY"/>
+                    <div *ngIf="editForm.get('locationCoordinateY').invalid && (editForm.get('locationCoordinateY').dirty || editForm.get('locationCoordinateY').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateY').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateY')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.defaultLanguage" for="field_defaultLanguage">Default Language</label>
+                    <input type="text" class="form-control" name="defaultLanguage" id="field_defaultLanguage"
+                           formControlName="defaultLanguage"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.cardPayment" for="field_cardPayment">Card Payment</label>
+                    <input type="checkbox" class="form-control" name="cardPayment" id="field_cardPayment"
+                           formControlName="cardPayment"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.singleCardPayment" for="field_singleCardPayment">Single Card Payment</label>
+                    <input type="checkbox" class="form-control" name="singleCardPayment" id="field_singleCardPayment"
+                           formControlName="singleCardPayment"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.recurringCardPayment" for="field_recurringCardPayment">Recurring Card Payment</label>
+                    <input type="checkbox" class="form-control" name="recurringCardPayment" id="field_recurringCardPayment"
+                           formControlName="recurringCardPayment"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.directDebit" for="field_directDebit">Direct Debit</label>
+                    <input type="checkbox" class="form-control" name="directDebit" id="field_directDebit"
+                           formControlName="directDebit"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.giftAid" for="field_giftAid">Gift Aid</label>
+                    <input type="checkbox" class="form-control" name="giftAid" id="field_giftAid"
+                           formControlName="giftAid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.generalFundraising" for="field_generalFundraising">General Fundraising</label>
+                    <input type="checkbox" class="form-control" name="generalFundraising" id="field_generalFundraising"
+                           formControlName="generalFundraising"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.schoolFundraising" for="field_schoolFundraising">School Fundraising</label>
+                    <input type="checkbox" class="form-control" name="schoolFundraising" id="field_schoolFundraising"
+                           formControlName="schoolFundraising"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.createdByUserId" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.affiliate.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

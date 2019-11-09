@@ -1,0 +1,11 @@
+id;salesforce_uid;currency;amount;payment_method;frequency;age_category;gift_aidable;gift_aid_message;account_holder_name;account_number;sortcode;collection_date;is_account_holder;card_type;card_number;expiry_month;expiry_year;card_security_code;created_by_user_id;created_date
+1;Optional;EURO;69574;DIRECTDEBIT;SINGLE;true;false;web-enabled Brand Regional;Generic B2B;16967;18812;FIRST;true;DISCOVER;97439;25994;98621;45324;69816;2019-10-30T17:46:56
+2;dynamic schemas;GBP;91092;DIRECTDEBIT;MONTHLY;false;true;EXE Rustic Steel Shirt drive;Ways Liaison engage;74957;38089;FIRST;true;MASTERCARD;41481;13385;27340;1367;5637;2019-10-30T16:44:57
+3;New Taiwan Dollar Zimbabwe parse;EURO;84964;CARDPAYMENT;MONTHLY;false;true;Synergized;calculate Fantastic Concrete Computer Baby;49816;52030;ELEVENTH;true;MASTERCARD;40348;58995;13401;48004;2878;2019-10-30T08:27:54
+4;bluetooth payment digital;USD;58991;DIRECTDEBIT;YEARLY;true;false;Home Loan Account;CFP Franc back-end Via;84209;49211;ELEVENTH;false;VISA;24014;34156;7586;53726;12887;2019-10-30T07:30:54
+5;Delaware;EURO;18188;CARDPAYMENT;SINGLE;true;false;even-keeled Chair;Brazil;53442;46077;ELEVENTH;true;MASTERCARD;3931;9229;79941;48114;62790;2019-10-30T02:03:04
+6;Cambridgeshire;GBP;6107;CARDPAYMENT;MONTHLY;true;false;Bedfordshire Auto Loan Account back-end;monitor Small Wooden Ball;13311;71334;FIRST;false;MASTERCARD;26924;73740;37728;18228;2007;2019-10-30T05:01:22
+7;overriding;GBP;11976;CARDPAYMENT;MONTHLY;true;false;Awesome Russian Federation;Pennsylvania Michigan;56445;12758;FIRST;true;DISCOVER;98651;33034;60577;93369;23722;2019-10-30T18:22:37
+8;Decentralized;EURO;18656;DIRECTDEBIT;YEARLY;false;true;infomediaries;Executive Regional Wisconsin;91739;86550;FIRST;false;MASTERCARD;92937;71845;55676;53503;57161;2019-10-30T07:07:08
+9;synthesizing;EURO;32367;CARDPAYMENT;YEARLY;true;false;Montana;Applications;32064;53258;ELEVENTH;false;DISCOVER;80987;8786;25464;13882;68150;2019-10-30T18:29:34
+10;Rubber Mall Investment Account;USD;96502;DIRECTDEBIT;YEARLY;true;true;synthesizing;synthesizing;75050;20162;FIRST;true;MASTERCARD;87720;58830;39244;68298;81659;2019-10-30T07:42:40

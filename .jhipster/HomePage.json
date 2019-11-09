@@ -1,0 +1,25 @@
+{
+    "name": "HomePage",
+    "fields": [
+        {
+            "fieldName": "costOfFeedingAChild",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "typeOfProject",
+            "fieldType": "TypeOfProject",
+            "fieldValues": "GENERALFUNDRAISING,SPONSORASCHOOL"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191030183320",
+    "entityTableName": "home_page",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

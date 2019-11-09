@@ -1,0 +1,44 @@
+{
+  "webApp": {
+    "donation": {
+      "home": {
+        "title": "Donations",
+        "createLabel": "Crear nuevo Donation",
+        "createOrEditLabel": "Crear o editar Donation",
+        "search": "Search for Donation",
+        "notFound": "No Donations found"
+      },
+      "created": "Un nuevo Donation ha sido creado con el identificador {{ param }}",
+      "updated": "Un Donation ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Donation ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Donation {{ id }}?"
+      },
+      "detail": {
+        "title": "Donation"
+      },
+      "salesforceUID": "Salesforce UID",
+      "currency": "Currency",
+      "amount": "Amount",
+      "paymentMethod": "Payment Method",
+      "frequency": "Frequency",
+      "ageCategory": "Age Category",
+      "giftAidable": "Gift Aidable",
+      "giftAidMessage": "Gift Aid Message",
+      "accountHolderName": "Account Holder Name",
+      "accountNumber": "Account Number",
+      "sortcode": "Sortcode",
+      "collectionDate": "Collection Date",
+      "isAccountHolder": "Is Account Holder",
+      "cardType": "Card Type",
+      "cardNumber": "Card Number",
+      "expiryMonth": "Expiry Month",
+      "expiryYear": "Expiry Year",
+      "cardSecurityCode": "Card Security Code",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date",
+      "donationToSupporter": "Donation To Supporter",
+      "donatesToProject": "Donates To Project"
+    }
+  }
+}

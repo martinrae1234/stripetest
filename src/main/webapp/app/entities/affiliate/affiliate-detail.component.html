@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="affiliate">
+            <h2><span jhiTranslate="webApp.affiliate.detail.title">Affiliate</span> {{affiliate.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.affiliate.salesforceUID">Salesforce UID</span></dt>
+                <dd>
+                    <span>{{affiliate.salesforceUID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.affiliateName">Affiliate Name</span></dt>
+                <dd>
+                    <span>{{affiliate.affiliateName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.currency">Currency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.Currency.' + affiliate.currency}}">{{affiliate.currency}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.streetAddress">Street Address</span></dt>
+                <dd>
+                    <span>{{affiliate.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.city">City</span></dt>
+                <dd>
+                    <span>{{affiliate.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.county">County</span></dt>
+                <dd>
+                    <span>{{affiliate.county}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.postcode">Postcode</span></dt>
+                <dd>
+                    <span>{{affiliate.postcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.country">Country</span></dt>
+                <dd>
+                    <span>{{affiliate.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.email">Email</span></dt>
+                <dd>
+                    <span>{{affiliate.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{affiliate.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.locationCoordinateX">Location Coordinate X</span></dt>
+                <dd>
+                    <span>{{affiliate.locationCoordinateX}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.locationCoordinateY">Location Coordinate Y</span></dt>
+                <dd>
+                    <span>{{affiliate.locationCoordinateY}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.defaultLanguage">Default Language</span></dt>
+                <dd>
+                    <span>{{affiliate.defaultLanguage}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.cardPayment">Card Payment</span></dt>
+                <dd>
+                    <span>{{affiliate.cardPayment}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.singleCardPayment">Single Card Payment</span></dt>
+                <dd>
+                    <span>{{affiliate.singleCardPayment}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.recurringCardPayment">Recurring Card Payment</span></dt>
+                <dd>
+                    <span>{{affiliate.recurringCardPayment}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.directDebit">Direct Debit</span></dt>
+                <dd>
+                    <span>{{affiliate.directDebit}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.giftAid">Gift Aid</span></dt>
+                <dd>
+                    <span>{{affiliate.giftAid}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.generalFundraising">General Fundraising</span></dt>
+                <dd>
+                    <span>{{affiliate.generalFundraising}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.schoolFundraising">School Fundraising</span></dt>
+                <dd>
+                    <span>{{affiliate.schoolFundraising}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{affiliate.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.affiliate.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{affiliate.createdDate}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/affiliate', affiliate.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

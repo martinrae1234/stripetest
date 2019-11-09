@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="project">
+            <h2><span jhiTranslate="webApp.project.detail.title">Project</span> {{project.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.project.salesforceUID">Salesforce UID</span></dt>
+                <dd>
+                    <span>{{project.salesforceUID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.typeOfProject">Type Of Project</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.TypeOfProject.' + project.typeOfProject}}">{{project.typeOfProject}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.fundraisingTarget">Fundraising Target</span></dt>
+                <dd>
+                    <span>{{project.fundraisingTarget}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.ageCategory">Age Category</span></dt>
+                <dd>
+                    <span>{{project.ageCategory}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.projectName">Project Name</span></dt>
+                <dd>
+                    <span>{{project.projectName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.projectDescription">Project Description</span></dt>
+                <dd>
+                    <span>{{project.projectDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.projectImage">Project Image</span></dt>
+                <dd>
+                    <div *ngIf="project.projectImage">
+                        <a (click)="openFile(project.projectImageContentType, project.projectImage)">
+                            <img [src]="'data:' + project.projectImageContentType + ';base64,' + project.projectImage" style="max-width: 100%;" alt="project image"/>
+                        </a>
+                        {{project.projectImageContentType}}, {{byteSize(project.projectImage)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.sponsorshipStart">Sponsorship Start</span></dt>
+                <dd>
+                    <span>{{project.sponsorshipStart}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.sponsorshipEndDate">Sponsorship End Date</span></dt>
+                <dd>
+                    <span>{{project.sponsorshipEndDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{project.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{project.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.projectOfsupporter">Project Ofsupporter</span></dt>
+                <dd>
+                    <div *ngIf="project.projectOfsupporter">
+                        <a [routerLink]="['/supporter', project.projectOfsupporter?.id, 'view']">{{project.projectOfsupporter?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.project.projectForSchool">Project For School</span></dt>
+                <dd>
+                    <div *ngIf="project.projectForSchool">
+                        <a [routerLink]="['/school', project.projectForSchool?.id, 'view']">{{project.projectForSchool?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/project', project.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

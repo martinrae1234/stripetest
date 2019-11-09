@@ -1,0 +1,163 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-staff-heading" jhiTranslate="webApp.staff.home.createOrEditLabel">Create or edit a Staff</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.salesforceUID" for="field_salesforceUID">Salesforce UID</label>
+                    <input type="text" class="form-control" name="salesforceUID" id="field_salesforceUID"
+                           formControlName="salesforceUID"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                    <div *ngIf="editForm.get('firstName').invalid && (editForm.get('firstName').dirty || editForm.get('firstName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('firstName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.secondName" for="field_secondName">Second Name</label>
+                    <input type="text" class="form-control" name="secondName" id="field_secondName"
+                           formControlName="secondName"/>
+                    <div *ngIf="editForm.get('secondName').invalid && (editForm.get('secondName').dirty || editForm.get('secondName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('secondName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.affiliate" for="field_affiliate">Affiliate</label>
+                    <input type="text" class="form-control" name="affiliate" id="field_affiliate"
+                           formControlName="affiliate"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.typeOfStaff" for="field_typeOfStaff">Type Of Staff</label>
+                    <select class="form-control" name="typeOfStaff" formControlName="typeOfStaff" id="field_typeOfStaff">
+                        <option value="STAFF">{{'webApp.TypeOfStaff.STAFF' | translate}}</option>
+                        <option value="VOLUNTEER">{{'webApp.TypeOfStaff.VOLUNTEER' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.locationCoordinateX" for="field_locationCoordinateX">Location Coordinate X</label>
+                    <input type="number" class="form-control" name="locationCoordinateX" id="field_locationCoordinateX"
+                           formControlName="locationCoordinateX"/>
+                    <div *ngIf="editForm.get('locationCoordinateX').invalid && (editForm.get('locationCoordinateX').dirty || editForm.get('locationCoordinateX').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateX').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateX')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.locationCoordinateY" for="field_locationCoordinateY">Location Coordinate Y</label>
+                    <input type="number" class="form-control" name="locationCoordinateY" id="field_locationCoordinateY"
+                           formControlName="locationCoordinateY"/>
+                    <div *ngIf="editForm.get('locationCoordinateY').invalid && (editForm.get('locationCoordinateY').dirty || editForm.get('locationCoordinateY').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('locationCoordinateY').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('locationCoordinateY')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.staffPicture" for="field_staffPicture">Staff Picture</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('staffPictureContentType').value + ';base64,' + editForm.get('staffPicture').value" style="max-height: 100px;" *ngIf="editForm.get('staffPicture').value" alt="staff image"/>
+                        <div *ngIf="editForm.get('staffPicture').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('staffPictureContentType').value}}, {{byteSize(editForm.get('staffPicture').value)}}</span>
+                            <button type="button" (click)="clearInputImage('staffPicture', 'staffPictureContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_staffPicture" (change)="setFileData($event, 'staffPicture', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="staffPicture" id="field_staffPicture"
+                           formControlName="staffPicture"/>
+                    <input type="hidden" class="form-control" name="staffPictureContentType" id="field_staffPictureContentType"
+                           formControlName="staffPictureContentType" />
+                    <div *ngIf="editForm.get('staffPicture').invalid && (editForm.get('staffPicture').dirty || editForm.get('staffPicture').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('staffPicture').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.position" for="field_position">Position</label>
+                    <input type="text" class="form-control" name="position" id="field_position"
+                           formControlName="position"/>
+                    <div *ngIf="editForm.get('position').invalid && (editForm.get('position').dirty || editForm.get('position').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('position').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.description" for="field_description">Description</label>
+                    <textarea class="form-control" name="description" id="field_description"
+                              formControlName="description"></textarea>
+                    <div *ngIf="editForm.get('description').invalid && (editForm.get('description').dirty || editForm.get('description').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.createdByUserId" for="field_createdByUserId">Created By User Id</label>
+                    <input type="number" class="form-control" name="createdByUserId" id="field_createdByUserId"
+                           formControlName="createdByUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user').value?.id ? editForm.get('user').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.staff.staffOfAffiliate" for="field_staffOfAffiliate">Staff Of Affiliate</label>
+                    <select class="form-control" id="field_staffOfAffiliate" name="staffOfAffiliate" formControlName="staffOfAffiliate">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="affiliateOption.id === editForm.get('staffOfAffiliate').value?.id ? editForm.get('staffOfAffiliate').value : affiliateOption" *ngFor="let affiliateOption of affiliates; trackBy: trackAffiliateById">{{affiliateOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+.card-img {
+  height: 30em;
+  object-fit: cover;
+  box-shadow: 0 0 5px black;
+  width: 100%;
+}
+
+.card {
+    box-shadow: 0 0 5px black;
+    height: 40em;
+
+}
+
+.card:hover {
+  transform: scale(1.055); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+.btn-secondary:hover {
+    color:white;
+    background-color: #0098d9;
+}
+
+
+.btn-secondary{
+    color: #0098d9;
+    background-color: pink;
+}
+
+.card-img-overlay {
+    height: 30em;
+    box-shadow: 0 0 5px black;
+    background-color: #0098d9;
+}
+
+
+.social-card-header{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 96px;
+}
+.social-card-header i {
+    font-size: 32px;
+    color:#FFF;
+}
+.bg-facebook {
+    background-color:#3b5998;
+}
+.text-facebook {
+    color:#3b5998;
+}
+.bg-google-plus{
+    background-color:#dd4b39;
+}
+.text-google-plus {
+    color:#dd4b39;
+}
+.bg-twitter {
+    background-color:#1da1f2;
+}
+.text-twitter {
+    color:#1da1f2;
+}
+.bg-pinterest {
+    background-color:#bd081c;
+}
+.text-pinterest {
+    color:#bd081c;
+}
+.share:hover {
+        text-decoration: none;
+    opacity: 0.8;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+}

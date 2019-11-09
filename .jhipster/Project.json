@@ -1,0 +1,90 @@
+{
+    "name": "Project",
+    "fields": [
+        {
+            "fieldName": "salesforceUID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeOfProject",
+            "fieldType": "TypeOfProject",
+            "fieldValues": "GENERALFUNDRAISING,SPONSORASCHOOL",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fundraisingTarget",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ageCategory",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "projectName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "projectDescription",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "projectImage",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "sponsorshipStart",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "sponsorshipEndDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createdByUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "supporter",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "projectOfsupporter",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "school",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "projectForSchool",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191030183328",
+    "entityTableName": "project",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

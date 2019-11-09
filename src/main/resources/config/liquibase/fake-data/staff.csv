@@ -1,0 +1,11 @@
+id;salesforce_uid;first_name;second_name;affiliate;type_of_staff;location_coordinate_x;location_coordinate_y;staff_picture;staff_picture_content_type;position;description;created_by_user_id;created_date
+1;killer Russian Federation;Moses;Music;B2C systematic;STAFF;58910;4209;../fake-data/blob/hipster.png;image/png;Automotive;../fake-data/blob/hipster.txt;98772;2019-10-30T17:28:32
+2;Fantastic whiteboard;Bradly;Usability;open-source Generic methodologies;VOLUNTEER;98918;16703;../fake-data/blob/hipster.png;image/png;Associate Intuitive Creative;../fake-data/blob/hipster.txt;64964;2019-10-30T13:01:27
+3;connecting Concrete;Alysa;architect;lavender;STAFF;21632;88378;../fake-data/blob/hipster.png;image/png;Communications Designer;../fake-data/blob/hipster.txt;17389;2019-10-30T12:18:44
+4;Buckinghamshire Buckinghamshire;Zelma;Forward;Pre-emptive Reduced;STAFF;86012;9148;../fake-data/blob/hipster.png;image/png;AI didactic;../fake-data/blob/hipster.txt;12951;2019-10-30T07:07:04
+5;Tasty Fresh Pizza Jewelery monitoring;Toney;bandwidth fresh-thinking;implement;STAFF;4878;49587;../fake-data/blob/hipster.png;image/png;Tasty yellow;../fake-data/blob/hipster.txt;68325;2019-10-29T21:05:26
+6;Facilitator;Angelina;RSS Borders;generating open-source Ouguiya;VOLUNTEER;52126;79742;../fake-data/blob/hipster.png;image/png;deposit hacking GB;../fake-data/blob/hipster.txt;70836;2019-10-30T10:32:30
+7;Quality-focused Quality Generic;Maximillia;purple SCSI Accountability;Outdoors backing up;STAFF;22862;74350;../fake-data/blob/hipster.png;image/png;Chair connecting synthesizing;../fake-data/blob/hipster.txt;50746;2019-10-30T12:20:58
+8;black;Art;website New York;exuding;STAFF;12844;10698;../fake-data/blob/hipster.png;image/png;back up;../fake-data/blob/hipster.txt;54126;2019-10-30T08:11:03
+9;copying benchmark Sausages;Nick;solid state;Baht;VOLUNTEER;16637;70817;../fake-data/blob/hipster.png;image/png;Handmade Rubber Shoes proactive Checking Account;../fake-data/blob/hipster.txt;4574;2019-10-29T22:06:01
+10;Strategist Yemeni Rial Shoals;Luz;Auto Loan Account;Movies Sports;STAFF;81878;77040;../fake-data/blob/hipster.png;image/png;UAE Dirham;../fake-data/blob/hipster.txt;44590;2019-10-30T14:44:36

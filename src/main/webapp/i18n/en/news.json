@@ -1,0 +1,38 @@
+{
+  "webApp": {
+    "news": {
+      "home": {
+        "title": "News",
+        "createLabel": "Create a new News",
+        "createOrEditLabel": "Create or edit a News",
+        "search": "Search for News",
+        "notFound": "No News found"
+      },
+      "created": "A new News is created with identifier {{ param }}",
+      "updated": "A News is updated with identifier {{ param }}",
+      "deleted": "A News is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete News {{ id }}?"
+      },
+      "detail": {
+        "title": "News"
+      },
+      "activeMessage": "Active Message",
+      "bannerPicture": "Banner Picture",
+      "dateOfNewsCreation": "Date Of News Creation",
+      "bannerName": "Banner Name",
+      "descriptionOne": "Description One",
+      "pictureOne": "Picture One",
+      "descriptionTwo": "Description Two",
+      "pictureTwo": "Picture Two",
+      "descriptionThree": "Description Three",
+      "pictureThree": "Picture Three",
+      "bottomPicture": "Bottom Picture",
+      "bottomDescription": "Bottom Description",
+      "buttonText": "Button Text",
+      "buttonURL": "Button URL",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date"
+    }
+  }
+}

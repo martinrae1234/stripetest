@@ -1,0 +1,163 @@
+{
+  "global": {
+    "title": "una solucion simple al hambre mundial",
+    "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=es\">actualice su navegador</a> para mejorar su experiencia.",
+    "footer": {
+        "usingoursite": "Usando nuestro sitio",
+        "termsofuse": "Terms of use",
+        "privacypolicy": "Terminos de Uso",
+        "howweusecookies": "Como usamos las cookies",
+        "accessibility": "Accesibilidad",
+        "sitemap": "Mapa del sitio",
+        "usefullinks": "Enlaces utiles",
+        "about": "Acerca de Mary's Meals",
+        "workforus": "Trabaja para nosotros",
+        "pressandmediaresources": "prensa y medios de comunicacion",
+        "contactus": "Contactenos",
+        "subscribetoupdates": "Suscribase a las actualizaciones",
+        "unsubscribe": "Darse de baja",
+        "myaccount": "Mi cuenta",
+        "forevery": "Por cada � 1 que das, 93p se gasta directamente en nuestras actividades de caridad. �Gracias!"
+    },
+    "menu": {
+      "home": "Inicio",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "entities": {
+        "main": "Entidades",
+        "homePage": "Home Page",
+        "message": "Message",
+        "news": "News",
+        "furtherInfo": "Further Info",
+        "donation": "Donation",
+        "supporter": "Supporter",
+        "affiliate": "Affiliate",
+        "project": "Project",
+        "school": "School",
+        "commodity": "Commodity",
+        "reasonForNonFeeding": "Reason For Non Feeding",
+        "delivery": "Delivery",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "account": {
+        "main": "Cuenta",
+        "settings": "Ajustes",
+        "password": "Contraseña",
+        "sessions": "Sesiones",
+        "login": "Iniciar sesión",
+        "logout": "Cerrar la sesión",
+        "register": "Crear una cuenta"
+      },
+      "admin": {
+        "main": "Administración",
+        "userManagement": "Gestión de usuarios",
+        "tracker": "Registro de usuarios",
+        "metrics": "Métricas",
+        "health": "Salud",
+        "configuration": "Configuración",
+        "logs": "Logs",
+        "audits": "Auditorías",
+        "apidocs": "API",
+        "database": "Base de datos",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+      },
+      "language": "Idioma"
+    },
+    "form": {
+      "username.label": "Usuario",
+      "username.placeholder": "Nombre de usuario",
+      "currentpassword.label": "Contraseña actual",
+      "currentpassword.placeholder": "Contraseña actual",
+      "newpassword.label": "Nueva contraseña",
+      "newpassword.placeholder": "Nueva contraseña",
+      "confirmpassword.label": "Confirmación de la nueva contraseña",
+      "confirmpassword.placeholder": "Confirmación de la nueva contraseña",
+      "email.label": "Correo electrónico",
+      "email.placeholder": "Su correo electrónico"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "Si desea ",
+          "link": "iniciar sesión",
+          "suffix": ", puede intentar con las cuentas predeterminadas:<br/>- Administrador (usuario=\"admin\" y contraseña=\"admin\") <br/>- Usuario (usuario=\"user\" y contraseña=\"user\")."
+        },
+        "register": {
+          "noaccount": "¿Aún no tienes una cuenta?",
+          "link": "Crea una cuenta"
+        }
+      },
+      "error": {
+        "dontmatch": "¡La contraseña y la confirmación de contraseña no coinciden!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Se requiere que ingrese una contraseña.",
+          "minlength": "Se requiere que su contraseña tenga por lo menos 4 caracteres",
+          "maxlength": "Su contraseña no puede tener más de 50 caracteres",
+          "strength": "Seguridad de la contraseña:"
+        },
+        "confirmpassword": {
+          "required": "Se requiere que confirme la contraseña.",
+          "minlength": "Se requiere que su contraseña de confirmación tenga por lo menos 4 caracteres",
+          "maxlength": "Su contraseña de confirmación no puede tener más de 50 caracteres"
+        },
+        "email": {
+          "required": "Se requiere un correo electrónico.",
+          "invalid": "Su correo electrónico no es válido.",
+          "minlength": "Se requiere que su correo electrónico tenga por lo menos 5 caracteres",
+          "maxlength": "Su correo electrónico no puede tener más de 50 caracteres"
+        }
+      }
+    },
+    "field": {
+      "id": "ID"
+    },
+    "ribbon": {
+      "dev": "Development"
+    },
+    "item-count": "Mostrando {{first}} - {{second}} de {{total}} elementos."
+  },
+  "entity": {
+    "action": {
+      "addblob": "Añadir fichero",
+      "addimage": "Añadir imagen",
+      "back": "Volver",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "open": "Abrir",
+      "save": "Guardar",
+      "view": "Vista"
+    },
+    "detail": {
+      "field": "Campo",
+      "value": "Valor"
+    },
+    "delete": {
+      "title": "Confirmar operación de borrado"
+    },
+    "validation": {
+      "required": "Este campo es obligatorio.",
+      "minlength": "Este campo requiere al menos {{min}} caracteres.",
+      "maxlength": "Este campo no puede superar más de {{max}} caracteres.",
+      "min": "Este campo debe ser mayor que {{min}}.",
+      "max": "Este campo no puede ser mayor que {{max}}.",
+      "minbytes": "Este campo debe tener como mínimo {{min}} bytes.",
+      "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
+      "pattern": "Este campo debe seguir el patrón {{pattern}}.",
+      "number": "Este campo debe ser un número.",
+      "datetimelocal": "Este campo debe ser una fecha y hora."
+    }
+  },
+  "error": {
+    "internalServerError": "Error interno en el servidor",
+    "server.not.reachable": "Servidor no accesible",
+    "url.not.found": "No existe",
+    "NotNull": "¡El campo {{fieldName}} no puede estar vacío!",
+    "Size": "¡El campo {{fieldName}} no cumple con los requisitos de tamaño mínimo/máximo!",
+    "userexists": "¡El nombre de usuario ya existe!",
+    "emailexists": "¡La cuenta de correo ya está en uso!",
+    "idexists": "Un/a nuevo/a {{entityName}} no puede tener ID",
+    "idnull": "ID inválido"
+  }
+}

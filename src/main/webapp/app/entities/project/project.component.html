@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.project.home.title">Projects</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-project" [routerLink]="['/project/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.project.home.createLabel">
+            Create a new Project
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="projects?.length === 0">
+        <span jhiTranslate="webApp.project.home.notFound">No projects found</span>
+    </div>
+    <div class="table-responsive" *ngIf="projects?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="salesforceUID"><span jhiTranslate="webApp.project.salesforceUID">Salesforce UID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="typeOfProject"><span jhiTranslate="webApp.project.typeOfProject">Type Of Project</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fundraisingTarget"><span jhiTranslate="webApp.project.fundraisingTarget">Fundraising Target</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="ageCategory"><span jhiTranslate="webApp.project.ageCategory">Age Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="projectName"><span jhiTranslate="webApp.project.projectName">Project Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="projectDescription"><span jhiTranslate="webApp.project.projectDescription">Project Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="projectImage"><span jhiTranslate="webApp.project.projectImage">Project Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="sponsorshipStart"><span jhiTranslate="webApp.project.sponsorshipStart">Sponsorship Start</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="sponsorshipEndDate"><span jhiTranslate="webApp.project.sponsorshipEndDate">Sponsorship End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdByUserId"><span jhiTranslate="webApp.project.createdByUserId">Created By User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="createdDate"><span jhiTranslate="webApp.project.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="projectOfsupporter.id"><span jhiTranslate="webApp.project.projectOfsupporter">Project Ofsupporter</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="projectForSchool.id"><span jhiTranslate="webApp.project.projectForSchool">Project For School</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let project of projects ;trackBy: trackId">
+                <td><a [routerLink]="['/project', project.id, 'view' ]">{{project.id}}</a></td>
+                <td>{{project.salesforceUID}}</td>
+                <td jhiTranslate="{{'webApp.TypeOfProject.' + project.typeOfProject}}">{{project.typeOfProject}}</td>
+                <td>{{project.fundraisingTarget}}</td>
+                <td>{{project.ageCategory}}</td>
+                <td>{{project.projectName}}</td>
+                <td>{{project.projectDescription}}</td>
+                <td>
+                    <a *ngIf="project.projectImage" (click)="openFile(project.projectImageContentType, project.projectImage)">
+                        <img [src]="'data:' + project.projectImageContentType + ';base64,' + project.projectImage" style="max-height: 30px;" alt="project image"/>
+                    </a>
+                    <span *ngIf="project.projectImage">{{project.projectImageContentType}}, {{byteSize(project.projectImage)}}</span>
+                </td>
+                <td>{{project.sponsorshipStart | date:'mediumDate'}}</td>
+                <td>{{project.sponsorshipEndDate | date:'mediumDate'}}</td>
+                <td>{{project.createdByUserId}}</td>
+                <td>{{project.createdDate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="project.projectOfsupporter">
+                        <a [routerLink]="['/supporter', project.projectOfsupporter?.id, 'view' ]" >{{project.projectOfsupporter?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="project.projectForSchool">
+                        <a [routerLink]="['/school', project.projectForSchool?.id, 'view' ]" >{{project.projectForSchool?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/project', project.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/project', project.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/project', { outlets: { popup: project.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="projects?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

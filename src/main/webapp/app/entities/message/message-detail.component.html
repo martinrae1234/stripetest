@@ -1,0 +1,67 @@
+<div class="row d-flex justify-content-center">
+<div class="container col-md-12">
+  <img style="max-width:100%;" [src]="'data:' + message.bannerPictureContentType + ';base64,' + message.bannerPicture" alt="message image">
+  <div class="card-img-overlay">
+    <h1 class="card-title" style="font-size:4rem"><b>{{message.bannerName}}</b></h1>
+  </div>
+</div>
+</div>
+<br>
+<br>
+
+
+  
+
+
+ <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading" style="color:#0098d9">{{message.headingOne}}</h1>
+      <p class="lead text-muted white-space">{{message.descriptionOne}}</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Set up a Monthly Donation</a>
+        <a href="#" class="btn btn-secondary my-2">Make a Single Donation</a>
+      </p>
+    </div>
+  </section>
+
+
+
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider" style="margin-top:3rem;">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading" style="margin-bottom:1rem; color:#0098d9">{{message.headerTwo}} </h2>
+        <p class="lead">{{message.descriptionTwo}}</p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" [src]="'data:' + message.quotePictureContentType + ';base64,' + message.quotePicture" width="500" height="500"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+    <div class="row col-md-12"">
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+    </div>
+
+ 
+
+    
+
+  
+
+
+
+
+
+

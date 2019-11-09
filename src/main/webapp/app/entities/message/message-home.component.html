@@ -1,0 +1,29 @@
+<div>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="alert alert-warning" *ngIf="messages?.length === 0">
+        <span>No messages found</span>
+    </div>
+    <!--div class="row d-flex justify-content-center">
+            <div class="col-md-4" *ngFor="let message of messages ;trackBy: trackId">
+                <div class="card shadow p-3 mb-5 bg-white rounded"><a [routerLink]="['/message', message.id, 'view' ]">
+                    <div class="card-header"><a *ngIf="message.bannerPicture">
+                        <img class="image-card" [src]="'data:' + message.bannerPictureContentType + ';base64,' + message.bannerPicture" alt="message image"/>
+                    </a></div>
+                    <div class="card-body"><h2>{{message.bannerName}}</h2></div>
+                   </a>
+                </div>    
+            </div>    
+    </div-->
+</div>
+
+<div class="row d-flex justify-content-center">
+<div class="card text-white col-md-3" *ngFor="let message of messages ;trackBy: trackId">
+        <a [routerLink]="['/message', message.id, 'view' ]">
+  <img class="card-img" [src]="'data:' + message.bottomPictureContentType + ';base64,' + message.bottomPicture" alt="message image">
+  <div class="card-img-overlay">
+    <h2 class="card-title"><b>{{message.bannerName}}</b></h2>
+  </div>
+  </a>
+</div>
+</div>

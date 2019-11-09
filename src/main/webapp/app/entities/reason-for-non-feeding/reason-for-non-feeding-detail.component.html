@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reasonForNonFeeding">
+            <h2><span jhiTranslate="webApp.reasonForNonFeeding.detail.title">Reason For Non Feeding</span> {{reasonForNonFeeding.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.reasonForNonFeeding.dateOfNonFeeding">Date Of Non Feeding</span></dt>
+                <dd>
+                    <span>{{reasonForNonFeeding.dateOfNonFeeding}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.reasonForNonFeeding.reasonForNonFeeding">Reason For Non Feeding</span></dt>
+                <dd>
+                    <span>{{reasonForNonFeeding.reasonForNonFeeding}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.reasonForNonFeeding.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{reasonForNonFeeding.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.reasonForNonFeeding.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{reasonForNonFeeding.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.reasonForNonFeeding.schoolNotFed">School Not Fed</span></dt>
+                <dd>
+                    <div *ngIf="reasonForNonFeeding.schoolNotFed">
+                        <a [routerLink]="['/school', reasonForNonFeeding.schoolNotFed?.id, 'view']">{{reasonForNonFeeding.schoolNotFed?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reason-for-non-feeding', reasonForNonFeeding.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

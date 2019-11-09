@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="staff">
+            <h2><span jhiTranslate="webApp.staff.detail.title">Staff</span> {{staff.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.staff.salesforceUID">Salesforce UID</span></dt>
+                <dd>
+                    <span>{{staff.salesforceUID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{staff.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.secondName">Second Name</span></dt>
+                <dd>
+                    <span>{{staff.secondName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.affiliate">Affiliate</span></dt>
+                <dd>
+                    <span>{{staff.affiliate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.typeOfStaff">Type Of Staff</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'webApp.TypeOfStaff.' + staff.typeOfStaff}}">{{staff.typeOfStaff}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.locationCoordinateX">Location Coordinate X</span></dt>
+                <dd>
+                    <span>{{staff.locationCoordinateX}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.locationCoordinateY">Location Coordinate Y</span></dt>
+                <dd>
+                    <span>{{staff.locationCoordinateY}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.staffPicture">Staff Picture</span></dt>
+                <dd>
+                    <div *ngIf="staff.staffPicture">
+                        <a (click)="openFile(staff.staffPictureContentType, staff.staffPicture)">
+                            <img [src]="'data:' + staff.staffPictureContentType + ';base64,' + staff.staffPicture" style="max-width: 100%;" alt="staff image"/>
+                        </a>
+                        {{staff.staffPictureContentType}}, {{byteSize(staff.staffPicture)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.position">Position</span></dt>
+                <dd>
+                    <span>{{staff.position}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.description">Description</span></dt>
+                <dd>
+                    <span>{{staff.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{staff.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{staff.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.user">User</span></dt>
+                <dd>
+                    {{staff.user?.login}}
+                </dd>
+                <dt><span jhiTranslate="webApp.staff.staffOfAffiliate">Staff Of Affiliate</span></dt>
+                <dd>
+                    <div *ngIf="staff.staffOfAffiliate">
+                        <a [routerLink]="['/affiliate', staff.staffOfAffiliate?.id, 'view']">{{staff.staffOfAffiliate?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/staff', staff.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

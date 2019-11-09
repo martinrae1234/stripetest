@@ -1,0 +1,49 @@
+{
+    "name": "Delivery",
+    "fields": [
+        {
+            "fieldName": "deliveryDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "amountDeliveredRice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "amountDeliveredFlour",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "deliveryNoteImage",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "createdByUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "school",
+            "otherEntityRelationshipName": "delivery",
+            "relationshipName": "deliveryForSchool",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191030183333",
+    "entityTableName": "delivery",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

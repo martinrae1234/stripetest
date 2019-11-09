@@ -1,0 +1,130 @@
+{
+    "name": "Affiliate",
+    "fields": [
+        {
+            "fieldName": "salesforceUID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "affiliateName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "Currency",
+            "fieldValues": "GBP,USD,EURO"
+        },
+        {
+            "fieldName": "streetAddress",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "county",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "postcode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "locationCoordinateX",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "locationCoordinateY",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "defaultLanguage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cardPayment",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "singleCardPayment",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "recurringCardPayment",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "directDebit",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "giftAid",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "generalFundraising",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "schoolFundraising",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createdByUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191030183327",
+    "entityTableName": "affiliate",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

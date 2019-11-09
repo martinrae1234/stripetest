@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="webApp.staff.home.title">Staff</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-staff" [routerLink]="['/staff/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="webApp.staff.home.createLabel">
+            Create a new Staff
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="staff?.length === 0">
+        <span jhiTranslate="webApp.staff.home.notFound">No staff found</span>
+    </div>
+    <div class="table-responsive" *ngIf="staff?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.salesforceUID">Salesforce UID</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.firstName">First Name</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.secondName">Second Name</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.affiliate">Affiliate</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.typeOfStaff">Type Of Staff</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.locationCoordinateX">Location Coordinate X</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.locationCoordinateY">Location Coordinate Y</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.staffPicture">Staff Picture</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.position">Position</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.description">Description</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.createdByUserId">Created By User Id</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.createdDate">Created Date</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.user">User</span></th>
+            <th scope="col" ><span jhiTranslate="webApp.staff.staffOfAffiliate">Staff Of Affiliate</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let staff of staff ;trackBy: trackId">
+                <td><a [routerLink]="['/staff', staff.id, 'view' ]">{{staff.id}}</a></td>
+                <td>{{staff.salesforceUID}}</td>
+                <td>{{staff.firstName}}</td>
+                <td>{{staff.secondName}}</td>
+                <td>{{staff.affiliate}}</td>
+                <td jhiTranslate="{{'webApp.TypeOfStaff.' + staff.typeOfStaff}}">{{staff.typeOfStaff}}</td>
+                <td>{{staff.locationCoordinateX}}</td>
+                <td>{{staff.locationCoordinateY}}</td>
+                <td>
+                    <a *ngIf="staff.staffPicture" (click)="openFile(staff.staffPictureContentType, staff.staffPicture)">
+                        <img [src]="'data:' + staff.staffPictureContentType + ';base64,' + staff.staffPicture" style="max-height: 30px;" alt="staff image"/>
+                    </a>
+                    <span *ngIf="staff.staffPicture">{{staff.staffPictureContentType}}, {{byteSize(staff.staffPicture)}}</span>
+                </td>
+                <td>{{staff.position}}</td>
+                <td>{{staff.description}}</td>
+                <td>{{staff.createdByUserId}}</td>
+                <td>{{staff.createdDate | date:'medium'}}</td>
+                <td>
+                    {{staff.user?.login}}
+                </td>
+                <td>
+                    <div *ngIf="staff.staffOfAffiliate">
+                        <a [routerLink]="['/affiliate', staff.staffOfAffiliate?.id, 'view' ]" >{{staff.staffOfAffiliate?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/staff', staff.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/staff', staff.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/staff', { outlets: { popup: staff.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="school">
+            <h2><span jhiTranslate="webApp.school.detail.title">School</span> {{school.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="webApp.school.salesforceUID">Salesforce UID</span></dt>
+                <dd>
+                    <span>{{school.salesforceUID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.legacySchoolID">Legacy School ID</span></dt>
+                <dd>
+                    <span>{{school.legacySchoolID}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.schoolName">School Name</span></dt>
+                <dd>
+                    <span>{{school.schoolName}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.sponsored">Sponsored</span></dt>
+                <dd>
+                    <span>{{school.sponsored}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.attendanceTotal">Attendance Total</span></dt>
+                <dd>
+                    <span>{{school.attendanceTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.attendanceBoys">Attendance Boys</span></dt>
+                <dd>
+                    <span>{{school.attendanceBoys}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.attendanceGirls">Attendance Girls</span></dt>
+                <dd>
+                    <span>{{school.attendanceGirls}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.enrolmentTotal">Enrolment Total</span></dt>
+                <dd>
+                    <span>{{school.enrolmentTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.locationCoordinateX">Location Coordinate X</span></dt>
+                <dd>
+                    <span>{{school.locationCoordinateX}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.locationCoordinateY">Location Coordinate Y</span></dt>
+                <dd>
+                    <span>{{school.locationCoordinateY}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.imageBanner">Image Banner</span></dt>
+                <dd>
+                    <div *ngIf="school.imageBanner">
+                        <a (click)="openFile(school.imageBannerContentType, school.imageBanner)">
+                            <img [src]="'data:' + school.imageBannerContentType + ';base64,' + school.imageBanner" style="max-width: 100%;" alt="school image"/>
+                        </a>
+                        {{school.imageBannerContentType}}, {{byteSize(school.imageBanner)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.textBanner">Text Banner</span></dt>
+                <dd>
+                    <span>{{school.textBanner}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.imageOne">Image One</span></dt>
+                <dd>
+                    <div *ngIf="school.imageOne">
+                        <a (click)="openFile(school.imageOneContentType, school.imageOne)">
+                            <img [src]="'data:' + school.imageOneContentType + ';base64,' + school.imageOne" style="max-width: 100%;" alt="school image"/>
+                        </a>
+                        {{school.imageOneContentType}}, {{byteSize(school.imageOne)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.imageTwo">Image Two</span></dt>
+                <dd>
+                    <div *ngIf="school.imageTwo">
+                        <a (click)="openFile(school.imageTwoContentType, school.imageTwo)">
+                            <img [src]="'data:' + school.imageTwoContentType + ';base64,' + school.imageTwo" style="max-width: 100%;" alt="school image"/>
+                        </a>
+                        {{school.imageTwoContentType}}, {{byteSize(school.imageTwo)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.imageThree">Image Three</span></dt>
+                <dd>
+                    <div *ngIf="school.imageThree">
+                        <a (click)="openFile(school.imageThreeContentType, school.imageThree)">
+                            <img [src]="'data:' + school.imageThreeContentType + ';base64,' + school.imageThree" style="max-width: 100%;" alt="school image"/>
+                        </a>
+                        {{school.imageThreeContentType}}, {{byteSize(school.imageThree)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.imageFour">Image Four</span></dt>
+                <dd>
+                    <div *ngIf="school.imageFour">
+                        <a (click)="openFile(school.imageFourContentType, school.imageFour)">
+                            <img [src]="'data:' + school.imageFourContentType + ';base64,' + school.imageFour" style="max-width: 100%;" alt="school image"/>
+                        </a>
+                        {{school.imageFourContentType}}, {{byteSize(school.imageFour)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.dateOfLastStockCheck">Date Of Last Stock Check</span></dt>
+                <dd>
+                    <span>{{school.dateOfLastStockCheck}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.createdByUserId">Created By User Id</span></dt>
+                <dd>
+                    <span>{{school.createdByUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="webApp.school.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{school.createdDate}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/school', school.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "webApp": {
+    "commodity": {
+      "home": {
+        "title": "Commodities",
+        "createLabel": "Create a new Commodity",
+        "createOrEditLabel": "Create or edit a Commodity",
+        "search": "Search for Commodity",
+        "notFound": "No Commodities found"
+      },
+      "created": "A new Commodity is created with identifier {{ param }}",
+      "updated": "A Commodity is updated with identifier {{ param }}",
+      "deleted": "A Commodity is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Commodity {{ id }}?"
+      },
+      "detail": {
+        "title": "Commodity"
+      },
+      "dateOfLastStockCheck": "Date Of Last Stock Check",
+      "name": "Name",
+      "amount": "Amount",
+      "perishable": "Perishable",
+      "amountExpirableInNext3months": "Amount Expirable In Next 3 Months",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date",
+      "commodityForSchool": "Commodity For School"
+    }
+  }
+}

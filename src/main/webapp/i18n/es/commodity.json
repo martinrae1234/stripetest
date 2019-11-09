@@ -1,0 +1,30 @@
+{
+  "webApp": {
+    "commodity": {
+      "home": {
+        "title": "Commodities",
+        "createLabel": "Crear nuevo Commodity",
+        "createOrEditLabel": "Crear o editar Commodity",
+        "search": "Search for Commodity",
+        "notFound": "No Commodities found"
+      },
+      "created": "Un nuevo Commodity ha sido creado con el identificador {{ param }}",
+      "updated": "Un Commodity ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Commodity ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Commodity {{ id }}?"
+      },
+      "detail": {
+        "title": "Commodity"
+      },
+      "dateOfLastStockCheck": "Date Of Last Stock Check",
+      "name": "Name",
+      "amount": "Amount",
+      "perishable": "Perishable",
+      "amountExpirableInNext3months": "Amount Expirable In Next 3 Months",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date",
+      "commodityForSchool": "Commodity For School"
+    }
+  }
+}

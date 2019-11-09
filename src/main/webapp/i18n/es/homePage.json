@@ -1,0 +1,24 @@
+{
+  "webApp": {
+    "homePage": {
+      "home": {
+        "title": "Home Pages",
+        "createLabel": "Crear nuevo Home Page",
+        "createOrEditLabel": "Crear o editar Home Page",
+        "search": "Search for Home Page",
+        "notFound": "No Home Pages found"
+      },
+      "created": "Un nuevo Home Page ha sido creado con el identificador {{ param }}",
+      "updated": "Un Home Page ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Home Page ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Home Page {{ id }}?"
+      },
+      "detail": {
+        "title": "Home Page"
+      },
+      "costOfFeedingAChild": "Cost Of Feeding A Child",
+      "typeOfProject": "Type Of Project"
+    }
+  }
+}

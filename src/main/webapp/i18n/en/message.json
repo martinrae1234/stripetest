@@ -1,0 +1,37 @@
+{
+  "webApp": {
+    "message": {
+      "home": {
+        "title": "Messages",
+        "createLabel": "Create a new Message",
+        "createOrEditLabel": "Create or edit a Message",
+        "search": "Search for Message",
+        "notFound": "No Messages found"
+      },
+      "created": "A new Message is created with identifier {{ param }}",
+      "updated": "A Message is updated with identifier {{ param }}",
+      "deleted": "A Message is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Message"
+      },
+      "activeMessage": "Active Message",
+      "bannerPicture": "Banner Picture",
+      "bannerName": "Banner Name",
+      "headingOne": "Heading One",
+      "descriptionOne": "Description One",
+      "quotePicture": "Quote Picture",
+      "quoteContent": "Quote Content",
+      "headerTwo": "Header Two",
+      "descriptionTwo": "Description Two",
+      "bottomPicture": "Bottom Picture",
+      "bottomDescription": "Bottom Description",
+      "buttonText": "Button Text",
+      "buttonURL": "Button URL",
+      "createdByUserId": "Created By User Id",
+      "createdDate": "Created Date"
+    }
+  }
+}
