@@ -3,13 +3,13 @@
     "title": "Mary's Meals",
     "subtitle": "This is your homepage",
     "joinus": "Join Us",
-    "joinusmessage": "With 64 million children out of school and many more hungry, our work is only just beginning.",
+    "joinusmessage": "With 65 million children out of school and many more hungry, our work is only just beginning.",
     "donate": "Donate",
     "startfundraising": "Start Fundraising",
-    "startfundraisingsmall": "A few ideas on how to start raising funds for Mary's Meals.....", 
-    "explore": "Explore", 
+    "startfundraisingsmall": "A few ideas on how to start raising funds for Mary's Meals.....",
+    "explore": "Explore",
     "news": "Latest News and Blogs",
-    "findout" : "Find out more",
+    "findout": "Find out more",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },

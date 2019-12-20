@@ -11,6 +11,7 @@ import { DonationDetailComponent } from './donation-detail.component';
 import { DonationUpdateComponent } from './donation-update.component';
 import { DonationDeletePopupComponent } from './donation-delete-dialog.component';
 import { IDonation } from 'app/shared/model/donation.model';
+import { DonationScreenComponent } from './donation-screen.component';
 
 @Injectable({ providedIn: 'root' })
 export class DonationResolve implements Resolve<IDonation> {
@@ -34,6 +35,18 @@ export const donationRoute: Routes = [
     component: DonationComponent,
     data: {
       authorities: ['ROLE_USER'],
+      pageTitle: 'webApp.donation.home.title'
+    },
+    canActivate: [UserRouteAccessService]
+  },
+  {
+    path: 'makedonation',
+    component: DonationScreenComponent,
+    resolve: {
+      donation: DonationResolve
+    },
+    data: {
+      authorities: [],
       pageTitle: 'webApp.donation.home.title'
     },
     canActivate: [UserRouteAccessService]

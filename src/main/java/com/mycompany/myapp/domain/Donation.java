@@ -44,31 +44,32 @@ public class Donation implements Serializable {
     @Column(name = "amount", nullable = false)
     private Double amount;
 
-    @NotNull
+    //@NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "payment_method", nullable = false)
-    private PaymentMethod paymentMethod;
-
-    @NotNull
+    @Column(name = "payment_method")
+    private PaymentMethod paymentMethod = PaymentMethod.CARDPAYMENT;
+	
+  
     @Enumerated(EnumType.STRING)
     @Column(name = "frequency", nullable = false)
     private Frequency frequency;
 
-    @NotNull
-    @Column(name = "age_category", nullable = false)
+    
+    @Column(name = "age_category")
     private Boolean ageCategory;
 
-    @NotNull
-    @Column(name = "gift_aidable", nullable = false)
+    
+    @Column(name = "gift_aidable")
     private Boolean giftAidable;
 
-    @NotNull
-    @Column(name = "gift_aid_message", nullable = false)
-    private String giftAidMessage;
+    
+    @Column(name = "gift_aid_message")
+    private String giftAidMessage = "Default";
 
-    @NotNull
-    @Column(name = "account_holder_name", nullable = false)
-    private String accountHolderName;
+    
+    @Column(name = "account_holder_name")
+    private String accountHolderName = "Default";
+    
 
     @Column(name = "account_number")
     private Integer accountNumber;
@@ -76,14 +77,14 @@ public class Donation implements Serializable {
     @Column(name = "sortcode")
     private Integer sortcode;
 
-    @NotNull
+    //@NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "collection_date", nullable = false)
-    private CollectionDate collectionDate;
-
-    @NotNull
-    @Column(name = "is_account_holder", nullable = false)
-    private Boolean isAccountHolder;
+    @Column(name = "collection_date")
+    private CollectionDate collectionDate = CollectionDate.FIRST;
+    
+    //@NotNull
+    @Column(name = "is_account_holder")
+    private Boolean isAccountHolder = true;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "card_type")

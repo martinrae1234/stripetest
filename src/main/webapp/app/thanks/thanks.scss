@@ -7,6 +7,19 @@ Main page styles
   padding: 0px;
 }
 
+.bg {
+  /* The image used */
+  background-image: url('../../content/images/thanks.jpg');
+
+  /* Full height */
+  height: 800px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .background {
   display: inline-block;
   width: 100%;
@@ -14,41 +27,17 @@ Main page styles
   padding-bottom: 10vw;
 }
 
-.time-icon {
-  display: inline-block;
-  width: 100%;
-  height: 60px;
-  margin-top: 50px;
-  background: url('../../content/images/time-icon.png') no-repeat center center;
+.thanksheading {
+  color: #009ddc;
 }
 
-.news-icon {
-  display: inline-block;
-  width: 100%;
-  height: 60px;
-  margin-top: 20px;
-  background: url('../../content/images/news-icon.png') no-repeat center center;
+.thanksbody {
+  padding-top: 2em;
 }
 
 .alert alert-warning {
   position: fixed;
   z-index: 2;
-}
-
-.arrow-icon {
-  display: inline-block;
-  width: 100%;
-  height: 60px;
-  margin-top: 20px;
-  background: url('../../content/images/arrow-icon.png') no-repeat center center;
-}
-
-.woodenPanel {
-  display: inline-block;
-  width: 110%;
-  height: 500px;
-  background: url('../../content/images/woodenPanel.jpg') repeat center top;
-  box-shadow: 0 0 50px black;
 }
 
 .joinUs {
@@ -101,8 +90,8 @@ Main page styles
   border-bottom: 8px solid #f3a909;
 }
 
-.card:hover {
-  transform: scale(1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.donatescreen {
+  padding-top: 10em;
 }
 
 .containerOut {
@@ -134,8 +123,7 @@ video {
   only screen and (-o-min-device-pixel-ratio: 2/1),
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
-  .hipster {
-    background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
-    background-size: contain;
-  }
 }
+
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');

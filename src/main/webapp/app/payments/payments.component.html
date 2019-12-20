@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="containerOut">
+      
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="https://d2dq5v26acvckf.cloudfront.net/assets/global/LATEST_TEASER_low.mp4" type="video/mp4">   
+        </video>
+              <div>
+                <h5 class="joinUs" jhiTranslate="home.joinus"></h5>
+              </div>
+              <div>
+                      <h5 class="joinUsBody col-md-12" jhiTranslate="home.joinusmessage" style="padding: 1rem;"><b>Feed a child for an entire month for as little as a pound</b></h5>
+                  </div>
+            </div>                   
+    </div>
+
+
+
+<div class="col-md-6">
+  <div class="donatescreen">
+      <h1> Please enter your card details</h1>
+
+      <!-- <div>
+      For information
+      <p> Transaction amount: <b>{{amount}}</b> </p>
+      <p> Transaction currency: <b>{{currency}}</b> </p>
+
+      </div> -->
+
+      <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest" class="checkout">
+      <input type="text" formControlName="name" placeholder="Jane Doe">
+      <div id="card-element" class="field"></div>
+      <button type="submit">
+        BUY {{amount}} {{currencySymbol}}
+      </button>
+
+  
+      </form>
+    </div>
+</div>
+</div>

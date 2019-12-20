@@ -9,6 +9,10 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./home-page/home-page.module').then(m => m.WebHomePageModule)
       },
       {
+        path: 'payment',
+        loadChildren: () => import('./payment/payment.module').then(m => m.WebPaymentModule)
+      },
+      {
         path: 'message',
         loadChildren: () => import('./message/message.module').then(m => m.WebMessageModule)
       },

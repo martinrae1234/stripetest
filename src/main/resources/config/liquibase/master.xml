@@ -28,6 +28,7 @@
     <include file="config/liquibase/changelog/20191030183331_added_entity_Commodity.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191030183332_added_entity_ReasonForNonFeeding.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191030183333_added_entity_Delivery.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190716143531_added_entity_Payment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20191030183324_added_entity_constraints_Donation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191030183325_added_entity_constraints_Supporter.xml" relativeToChangelogFile="false"/>
@@ -37,5 +38,7 @@
     <include file="config/liquibase/changelog/20191030183331_added_entity_constraints_Commodity.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191030183332_added_entity_constraints_ReasonForNonFeeding.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191030183333_added_entity_constraints_Delivery.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190716143531_added_entity_constraints_Payment.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

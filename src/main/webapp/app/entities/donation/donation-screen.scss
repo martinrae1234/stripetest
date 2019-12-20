@@ -14,41 +14,9 @@ Main page styles
   padding-bottom: 10vw;
 }
 
-.time-icon {
-  display: inline-block;
-  width: 100%;
-  height: 60px;
-  margin-top: 50px;
-  background: url('../../content/images/time-icon.png') no-repeat center center;
-}
-
-.news-icon {
-  display: inline-block;
-  width: 100%;
-  height: 60px;
-  margin-top: 20px;
-  background: url('../../content/images/news-icon.png') no-repeat center center;
-}
-
 .alert alert-warning {
   position: fixed;
   z-index: 2;
-}
-
-.arrow-icon {
-  display: inline-block;
-  width: 100%;
-  height: 60px;
-  margin-top: 20px;
-  background: url('../../content/images/arrow-icon.png') no-repeat center center;
-}
-
-.woodenPanel {
-  display: inline-block;
-  width: 110%;
-  height: 500px;
-  background: url('../../content/images/woodenPanel.jpg') repeat center top;
-  box-shadow: 0 0 50px black;
 }
 
 .joinUs {
@@ -95,14 +63,46 @@ Main page styles
   vertical-align: top;
 }
 
-.h1 {
+h1 {
   display: inline-block;
-  font-size: 120px;
-  border-bottom: 8px solid #f3a909;
+  font: 'Campton-Bold', Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
 
-.card:hover {
-  transform: scale(1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+.donatescreen {
+  padding-top: 2em;
+  padding-bottom: 1em;
+  background-color: #f3a909;
+}
+
+.panel {
+  background-color: white;
+  min-width: 100%;
+  padding: 1em;
+}
+
+.orange {
+  color: #f3a909;
+}
+
+.blue {
+  color: #009ddc;
+}
+
+.giftaid {
+  /* The image used */
+  background-image: url('../../../content/images/giftaid.jpg');
+  width: 100%;
+  height: 10em;
+  margin-bottom: 2em;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .containerOut {
@@ -134,8 +134,4 @@ video {
   only screen and (-o-min-device-pixel-ratio: 2/1),
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
-  .hipster {
-    background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
-    background-size: contain;
-  }
 }

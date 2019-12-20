@@ -3,25 +3,25 @@
     "title": "a simple solution to world hunger",
     "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
     "footer": {
-        "usingoursite": "Using our site",
-        "termsofuse": "Terms of use",
-        "privacypolicy": "Privacy policy",
-        "howweusecookies": "How we use cookies",
-        "accessibility": "Accessibility",
-        "sitemap": "Sitemap",
-        "usefullinks": "Useful links",
-        "about": "About Mary's Meals",
-        "workforus": "Work for us",
-        "pressandmediaresources": "Press and media resources",
-        "contactus": "Contact us",
-        "subscribetoupdates": "Subscribe to Updates",
-        "unsubscribe": "Unsubscribe",
-        "myaccount": "My account",
-        "forevery": "For every £1 you give, 93p is spent directly on our charitable activities.Thank you!"
-
+      "usingoursite": "Using our site",
+      "termsofuse": "Terms of use",
+      "privacypolicy": "Privacy policy",
+      "howweusecookies": "How we use cookies",
+      "accessibility": "Accessibility",
+      "sitemap": "Sitemap",
+      "usefullinks": "Useful links",
+      "about": "About Mary's Meals",
+      "workforus": "Work for us",
+      "pressandmediaresources": "Press and media resources",
+      "contactus": "Contact us",
+      "subscribetoupdates": "Subscribe to Updates",
+      "unsubscribe": "Unsubscribe",
+      "myaccount": "My account",
+      "forevery": "For every ï¿½1 you give, 93p is spent directly on our charitable activities.Thank you!"
     },
     "menu": {
       "home": "Home",
+      "makeDonation": "Donate",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
@@ -31,7 +31,9 @@
         "furtherInfo": "Further Info",
         "event": "event",
         "staff": "staff",
-        "donation": "Donation",
+        "stripePayments": "Stripe Payments",
+        "donation": "Donations",
+        "fundraising": "Fundraising",
         "supporter": "Supporter",
         "affiliate": "Affiliate",
         "project": "Project",
@@ -165,4 +167,3 @@
     "idnull": "Invalid ID"
   }
 }
-
