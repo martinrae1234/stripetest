@@ -48,7 +48,6 @@ export class NavbarComponent implements OnInit {
   }
 
   changeLanguage(languageKey: string) {
-    console.log('I am in changeLanguage');
     this.sessionStorage.store('locale', languageKey);
     this.languageService.changeLanguage(languageKey);
   }
