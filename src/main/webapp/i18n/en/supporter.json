@@ -8,6 +8,9 @@
         "search": "Search for Supporter",
         "notFound": "No Supporters found"
       },
+      "screen": {
+        "tellusabout": "Tell us a bit about you"
+      },
       "created": "A new Supporter is created with identifier {{ param }}",
       "updated": "A Supporter is updated with identifier {{ param }}",
       "deleted": "A Supporter is deleted with identifier {{ param }}",

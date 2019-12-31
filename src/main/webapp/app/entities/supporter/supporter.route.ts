@@ -12,6 +12,7 @@ import { SupporterDetailComponent } from './supporter-detail.component';
 import { SupporterUpdateComponent } from './supporter-update.component';
 import { SupporterDeletePopupComponent } from './supporter-delete-dialog.component';
 import { ISupporter } from 'app/shared/model/supporter.model';
+import { SupporterScreenComponent } from './supporter-screen.component';
 
 @Injectable({ providedIn: 'root' })
 export class SupporterResolve implements Resolve<ISupporter> {
@@ -39,6 +40,18 @@ export const supporterRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
+      pageTitle: 'webApp.supporter.home.title'
+    },
+    canActivate: [UserRouteAccessService]
+  },
+  {
+    path: 'addsupporter',
+    component: SupporterScreenComponent,
+    resolve: {
+      supporter: SupporterResolve
+    },
+    data: {
+      authorities: [],
       pageTitle: 'webApp.supporter.home.title'
     },
     canActivate: [UserRouteAccessService]

@@ -1,0 +1,137 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.col-md-12 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.background {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  padding-bottom: 10vw;
+}
+
+.alert alert-warning {
+  position: fixed;
+  z-index: 2;
+}
+
+.joinUs {
+  position: relative;
+  text-align: center;
+  font: 'Campton-Bold', Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 9vw;
+  padding-top: 175px;
+  z-index: 10;
+}
+
+.joinUsBody {
+  position: relative;
+  padding-top: 2vw;
+  text-align: center;
+  font: 'Campton-Bold', Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 3vw;
+  z-index: 10;
+}
+
+.joinUsBodySmall {
+  padding-top: 50px;
+  text-align: center;
+  font: 'Campton-Bold', Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 1.3vw;
+}
+
+.messageHeader {
+  padding: 0px;
+  text-align: center;
+  font: 'Campton-Bold', Helvetica, Arial, sans-serif;
+  color: #009ddc;
+  font-size: 3vw;
+}
+
+.col-centered {
+  display: inline-block;
+  float: none !important;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+}
+
+h1 {
+  display: inline-block;
+  font: 'Campton-Bold', Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.supporterscreen {
+  padding-top: 4em;
+  padding-bottom: 1em;
+  background-color: white;
+}
+
+.panel {
+  background-color: white;
+  min-width: 100%;
+  padding: 1em;
+}
+
+.orange {
+  color: #f3a909;
+}
+
+.blue {
+  color: #009ddc;
+}
+
+.giftaid {
+  /* The image used */
+  background-image: url('../../../content/images/giftaid.jpg');
+  width: 100%;
+  height: 10em;
+  margin-bottom: 2em;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.containerOut {
+  position: relative;
+  height: 100vh;
+  min-height: 40rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+}

@@ -1,6 +1,6 @@
-
-.card:hover {
+.card-img:hover {
   transform: scale(1.055); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .card-title {
@@ -9,26 +9,19 @@
   transform: translateY(-50%);
   top: 50%;
   width: 100%;
-  font: "Campton-Bold", Helvetica, Arial, sans-serif;
-  color: white; 
-}
-
-.card-body {
-  text-align: center;
-  font: "Campton-Bold", Helvetica, Arial, sans-serif; 
-  background-color:#009ddc;
+  font: 'Campton-Bold', Helvetica, Arial, sans-serif;
   color: white;
 }
 
-.card {
- margin:20px;
-}
-
 .card-img {
-  height: 30em;
+  height: 25em;
+  margin: 10px;
+  //height: 300px!important;
+  width: 100% !important;
   object-fit: cover;
-  box-shadow: 0 0 5px black;
-
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: white;
+  color: white;
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */

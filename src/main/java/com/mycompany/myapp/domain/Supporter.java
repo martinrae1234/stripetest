@@ -28,9 +28,9 @@ public class Supporter implements Serializable {
     @Column(name = "salesforce_uid")
     private String salesforceUID;
 
-    @NotNull
-    @Column(name = "age_category", nullable = false)
-    private Boolean ageCategory;
+    @Column(name = "age_category")
+    private Boolean ageCategory = true;
+   
 
     @Enumerated(EnumType.STRING)
     @Column(name = "supporter_salutation")
@@ -83,13 +83,11 @@ public class Supporter implements Serializable {
     @Column(name = "contactable_by_post", nullable = false)
     private Boolean contactableByPost;
 
-    @NotNull
-    @Column(name = "location_coordinate_x", nullable = false)
-    private Float locationCoordinateX;
+    @Column(name = "location_coordinate_x")
+    private float locationCoordinateX = 1;
 
-    @NotNull
-    @Column(name = "location_coordinate_y", nullable = false)
-    private Float locationCoordinateY;
+    @Column(name = "location_coordinate_y")
+    private float locationCoordinateY = 1;
 
     @Column(name = "facebook_url")
     private String facebookUrl;

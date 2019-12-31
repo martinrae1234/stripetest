@@ -8,6 +8,9 @@
         "search": "Search for Supporter",
         "notFound": "No Supporters found"
       },
+      "screen": {
+        "tellusabout": "Cu�ntanos un poco sobre ti"
+      },
       "created": "Un nuevo Supporter ha sido creado con el identificador {{ param }}",
       "updated": "Un Supporter ha sido actualizado con el identificador {{ param }}",
       "deleted": "Un Supporter ha sido eliminado con el identificador {{ param }}",

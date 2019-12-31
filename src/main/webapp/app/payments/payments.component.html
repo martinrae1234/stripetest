@@ -20,21 +20,32 @@
   <div class="donatescreen">
       <h1> Please enter your card details</h1>
 
-      <!-- <div>
+      <div>
       For information
       <p> Transaction amount: <b>{{amount}}</b> </p>
       <p> Transaction currency: <b>{{currency}}</b> </p>
 
-      </div> -->
+      </div>
 
       <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest" class="checkout">
       <input type="text" formControlName="name" placeholder="Jane Doe">
+      <input type="number" name="amount" formControlName="amount" placeholder="9.99">
       <div id="card-element" class="field"></div>
       <button type="submit">
-        BUY {{amount}} {{currencySymbol}}
+        Make Donation
       </button>
 
   
+        <!--div class="form-group">
+                    <label class="form-control-label" jhiTranslate="webApp.donation.accountNumber" for="field_accountNumber">Account Number</label>
+                    <input type="number" class="form-control" name="accountNumber" id="field_accountNumber"
+                           formControlName="accountNumber"/>
+        </div-->
+
+
+
+
+
       </form>
     </div>
 </div>

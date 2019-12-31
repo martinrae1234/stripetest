@@ -5,9 +5,9 @@ import { WebSharedModule } from 'app/shared/shared.module';
 import { DonationComponent } from './donation.component';
 import { DonationDetailComponent } from './donation-detail.component';
 import { DonationUpdateComponent } from './donation-update.component';
+import { DonationScreenComponent } from './donation-screen.component';
 import { DonationDeletePopupComponent, DonationDeleteDialogComponent } from './donation-delete-dialog.component';
 import { donationRoute, donationPopupRoute } from './donation.route';
-import { DonationScreenComponent } from './donation-screen.component';
 
 const ENTITY_STATES = [...donationRoute, ...donationPopupRoute];
 
@@ -19,8 +19,7 @@ const ENTITY_STATES = [...donationRoute, ...donationPopupRoute];
     DonationDetailComponent,
     DonationUpdateComponent,
     DonationDeleteDialogComponent,
-    DonationDeletePopupComponent,
-    DonationScreenComponent
+    DonationDeletePopupComponent
   ],
   entryComponents: [DonationDeleteDialogComponent]
 })

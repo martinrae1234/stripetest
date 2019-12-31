@@ -26,7 +26,7 @@ export class PaymentsComponent implements OnInit {
   elements: Elements;
   card: StripeElement;
   stripeTest: FormGroup;
-  amount = 9.99;
+  amount: number;
   currencySymbol: string;
 
   currency = 'usd';
@@ -56,7 +56,8 @@ export class PaymentsComponent implements OnInit {
     this.registerAuthenticationSuccess();
 
     this.stripeTest = this.fb.group({
-      name: ['', [Validators.required]]
+      name: ['', [Validators.required]],
+      amount: ['13.90', [Validators.required]]
     });
     this.stripeService.elements(this.elementsOptions).subscribe(elements => {
       this.elements = elements;
@@ -140,7 +141,8 @@ export class PaymentsComponent implements OnInit {
         // Use the token to create a charge or a customer
         // https://stripe.com/docs/charges
         // console.log(result.token);
-        this.payment.amount = this.amount * 100;
+        // this.payment.amount = this.amount * 100;
+        this.payment.amount = this.stripeTest.get('amount').value * 100;
         this.payment.currency = this.currency;
         this.payment.token = result.token.id;
         this.payment.date = moment();

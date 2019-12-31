@@ -7,6 +7,7 @@ import { SupporterDetailComponent } from './supporter-detail.component';
 import { SupporterUpdateComponent } from './supporter-update.component';
 import { SupporterDeletePopupComponent, SupporterDeleteDialogComponent } from './supporter-delete-dialog.component';
 import { supporterRoute, supporterPopupRoute } from './supporter.route';
+import { SupporterScreenComponent } from './supporter-screen.component';
 
 const ENTITY_STATES = [...supporterRoute, ...supporterPopupRoute];
 
@@ -17,7 +18,8 @@ const ENTITY_STATES = [...supporterRoute, ...supporterPopupRoute];
     SupporterDetailComponent,
     SupporterUpdateComponent,
     SupporterDeleteDialogComponent,
-    SupporterDeletePopupComponent
+    SupporterDeletePopupComponent,
+    SupporterScreenComponent
   ],
   entryComponents: [SupporterDeleteDialogComponent]
 })

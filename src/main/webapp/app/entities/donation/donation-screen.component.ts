@@ -174,7 +174,8 @@ export class DonationScreenComponent implements OnInit {
   protected onSaveSuccess() {
     this.isSaving = false;
     // this.previousState();
-    this.router.navigate(['/payments']);
+    this.router.navigate(['/supporter/addsupporter']);
+    // this.router.navigate(['/payments']);
   }
 
   protected onSaveError() {

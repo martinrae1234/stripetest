@@ -18,12 +18,14 @@
 </div>
 
 <div class="row d-flex justify-content-center">
-<div class="card text-white col-md-3" *ngFor="let message of messages ;trackBy: trackId">
+<div class="text-white col-md-3" *ngFor="let message of messages ;trackBy: trackId">
         <a [routerLink]="['/message', message.id, 'view' ]">
-  <img class="card-img" [src]="'data:' + message.bottomPictureContentType + ';base64,' + message.bottomPicture" alt="message image">
-  <div class="card-img-overlay">
+            <div class="embed-responsive embed-responsive-4by3">
+            <div class="embed-responsive-item">
+                  <img class="card-img" [src]="'data:' + message.bottomPictureContentType + ';base64,' + message.bottomPicture" alt="message image">
+            </div>
+          </div>
     <h2 class="card-title"><b>{{message.bannerName}}</b></h2>
-  </div>
   </a>
 </div>
 </div>
